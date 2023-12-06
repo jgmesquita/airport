@@ -128,7 +128,15 @@ void run() {
             maximumTraffic(flights, k);
         }
         else if (input == "10") {
-            continue;
+            int count = 0;
+            Graph<Airport>* reference = &flights;
+            auto it = articulationPoints(reference);
+            cout << "The following airports are essential for the network's circulation capability:" << endl;
+            for (Airport a : it) {
+                count++;
+                cout << "-> [" << a.getCode() << "] - " << a.getName() << endl;
+            }
+            cout << "There are " << count << " essential airports!" << endl;
         }
         else if (input == "11") {
             string input2;

@@ -4,6 +4,7 @@
 #include <set>
 #include <map>
 #include <algorithm>
+#include <unordered_set>
 #include "Airport.cpp"
 #include "Airline.cpp"
 #include "Graph.h"
@@ -454,6 +455,53 @@ void longestDistance(Graph<Airport>& flights) {
         }
     }
     cout << "Something" << endl;
+}
+
+void dfs_art(Graph<Airport> *g, Vertex<Airport> *v, stack<Airport> &s, unordered_set<Airport, HashAirport, HashAirport> &res, int &i);
+unordered_set<Airport, HashAirport, HashAirport> articulationPoints(Graph<Airport> *g) {
+    unordered_set<Airport, HashAirport, HashAirport> res;
+    stack<Airport> s;
+    int index = 1;
+    for (auto v : g->getVertexSet()) {
+        v->setVisited(false);
+    }
+    for (auto v : g->getVertexSet()) {
+        if(!v->isVisited()) {
+            dfs_art(g, v,s, res, index);
+        }
+    }
+    return res;
+}
+
+void dfs_art(Graph<Airport> *g, Vertex<Airport> *v, stack<Airport> &s, unordered_set<Airport, HashAirport, HashAirport> &l, int &i){
+    v->setVisited(true);
+    v->setLow(i);
+    v->setNum(i);
+    v->setProcessing(true);
+    s.push(v->getInfo());
+    i++;
+
+    int count = 0;
+
+    for (auto& e: v->getAdj()) {
+        auto w = e.getDest();
+        if(!w->isVisited()) {
+            count++;
+            dfs_art(g,w,s,l,i);
+            v->setLow(min(v->getLow(), w->getLow()));
+            if (w->getLow() >= v->getNum() && v->getNum() != 1) {
+                l.insert(v->getInfo());
+            }
+        }
+        else if (w->isProcessing()) {
+            v->setLow(min(v->getLow(), w->getNum()));
+        }
+        if (count > 1 && v->getNum() == 1) {
+            l.insert(v->getInfo());
+        }
+    }
+    v->setProcessing(false);
+    s.pop();
 }
 
 void bestAirportAirport(Graph<Airport>& flights, vector<Airport>& airports, string airport_code1, string airport_code2) {

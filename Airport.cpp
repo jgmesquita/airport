@@ -54,3 +54,17 @@ public:
         return this->code < a2.code;
     }
 };
+
+struct HashAirport {
+    bool operator() (Airport a1, Airport a2) const {
+        return a1.getCode() == a2.getCode();
+    }
+    int operator() (Airport a) const {
+        string s1 = a.getCode();
+        int v = 0;
+        for (unsigned int i = 0; i < s1.size(); i++) {
+            v = 37*v + s1[i];
+        }
+        return v;
+    }
+};
