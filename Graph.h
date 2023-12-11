@@ -9,6 +9,11 @@
 #include <queue>
 #include <stack>
 #include <list>
+#include <limits>
+#include <numeric>
+#include <unordered_set>
+#include <unordered_map>
+#include <algorithm>
 
 using namespace std;
 
@@ -41,7 +46,6 @@ public:
     void setProcessing(bool p);
     const vector<Edge<T>> &getAdj() const;
     void setAdj(const vector<Edge<T>> &adj);
-
     int getIndegree() const;
 
     void setIndegree(int indegree);
@@ -95,6 +99,61 @@ public:
     vector<T> bfs(const T &source) const;
     vector<T> topsort() const;
     bool isDAG() const;
+    vector<T> dijkstra(const T &start, const T &end) const {
+        // Priority queue to store vertices with their distances
+        priority_queue<pair<double, Vertex<T>*>, vector<pair<double, Vertex<T>*>>, greater<pair<double, Vertex<T>*>>> pq;
+
+        // Map to store the distance from the start vertex to each vertex
+        unordered_map<Vertex<T>*, double> distance;
+
+        // Map to store the previous vertex in the shortest path
+        unordered_map<Vertex<T>*, Vertex<T>*> previous;
+
+        // Initialize distances and add the start vertex to the priority queue
+        for (auto v : vertexSet) {
+            distance[v] = numeric_limits<double>::infinity();
+            previous[v] = nullptr;
+        }
+
+        Vertex<T> *startVertex = findVertex(start);
+        Vertex<T> *endVertex = findVertex(end);
+
+        if (!startVertex || !endVertex) {
+            cerr << "Start or end vertex not found." << endl;
+            return vector<T>();
+        }
+
+        distance[startVertex] = 0.0;
+        pq.push({0.0, startVertex});
+
+        while (!pq.empty()) {
+            Vertex<T>* currentVertex = pq.top().second;
+            pq.pop();
+
+            if (currentVertex == endVertex) {
+                // Reconstruct the path from end to start
+                vector<T> path;
+                while (currentVertex != nullptr) {
+                    path.insert(path.begin(), currentVertex->getInfo());
+                    currentVertex = previous[currentVertex];
+                }
+                return path;
+            }
+
+            for (const Edge<T>& edge : currentVertex->getAdj()) {
+                Vertex<T>* neighbor = edge.getDest();
+                double newDistance = distance[currentVertex] + edge.getWeight();
+
+                if (newDistance < distance[neighbor]) {
+                    distance[neighbor] = newDistance;
+                    previous[neighbor] = currentVertex;
+                    pq.push({newDistance, neighbor});
+                }
+            }
+        }
+        return vector<T>();
+    }
+
 };
 
 /****************** Provided constructors and functions ********************/

@@ -11,9 +11,9 @@
 
 using namespace std;
 
-double haversine(Airport a1, Airport a2) {
+double haversineAirport(Airport a1, Airport a2) {
     double dLat = (stod(a2.getLatitude()) - stod(a1.getLatitude())) * M_PI / 180.0;
-    double dLon = (stod(a2.getLongitude()) - stod(a2.getLongitude())) * M_PI / 180.0;
+    double dLon = (stod(a2.getLongitude()) - stod(a1.getLongitude())) * M_PI / 180.0;
 
     double lat_a1 = stod(a1.getLatitude()) * M_PI / 180.0;
     double lat_a2 = stod(a2.getLatitude()) * M_PI / 180.0;
@@ -148,7 +148,7 @@ void loadFlights(Graph<Airport>& flights, vector<Airport>& airports, vector<Airl
             }
             n++;
         }
-        flights.addEdge(x, y, haversine(x, y), n);
+        flights.addEdge(x, y, haversineAirport(x, y), n);
     }
 }
 
@@ -504,7 +504,7 @@ void dfs_art(Graph<Airport> *g, Vertex<Airport> *v, stack<Airport> &s, unordered
     s.pop();
 }
 
-void bestAirportAirport(Graph<Airport>& flights, vector<Airport>& airports, string airport_code1, string airport_code2) {
+void bestAirportAirport(Graph<Airport>* flights, vector<Airport>& airports, string airport_code1, string airport_code2) {
     Airport airport1;
     auto it = airports.begin();
     for (; it != airports.end(); it++) {
@@ -520,7 +520,7 @@ void bestAirportAirport(Graph<Airport>& flights, vector<Airport>& airports, stri
     Airport airport2;
     auto it2 = airports.begin();
     for (; it2 != airports.end(); it2++) {
-        if (it2->getCode() == airport_code1) {
+        if (it2->getCode() == airport_code2) {
             airport2 = *it2;
             break;
         }
@@ -529,6 +529,357 @@ void bestAirportAirport(Graph<Airport>& flights, vector<Airport>& airports, stri
         cout << "Target airport not found!" << endl;
         return;
     }
+    auto v = flights->dijkstra(airport1, airport2);
+    for (auto w : v) {
+        cout << w.getCode() << ", ";
+    }
+    cout << endl;
+}
+
+void bestAirportCity(Graph<Airport>* flights, string city, string airport_code, vector<Airport> airports) {
+    Airport airport1;
+    auto it = airports.begin();
+    for (; it != airports.end(); it++) {
+        if (it->getCode() == airport_code) {
+            airport1 = *it;
+            break;
+        }
+    }
+    if (it == airports.end()) {
+        cout << "Source airport not found!" << endl;
+        return;
+    }
+    vector<Airport> temp;
+    for (Airport a : airports) {
+        if (a.getCity() == city) {
+            temp.push_back(a);
+        }
+    }
+    if (temp.empty()) {
+        cout << "Target city not found!" << endl;
+        return;
+    }
+    cout << "For the following city, there are the following airports:" << endl;
+    for (unsigned i = 0; i < temp.size(); i++) {
+        cout << "[" << i << "] - Name: " << temp[i].getName() << " Code: " << temp[i].getCode() << endl;
+    }
+    unsigned number;
+    cout << "Choose its index:" << endl;
+    cin >> number;
+    Airport airport2 = temp[number];
+    auto v = flights->dijkstra(airport1, airport2);
+    for (auto w : v) {
+        cout << w.getCode() << ", ";
+    }
+    cout << endl;
+}
+
+double haversineAirportCoordinate(Airport a1, double latitude, double longitude) {
+    double dLat = (latitude - stod(a1.getLatitude())) * M_PI / 180.0;
+    double dLon = (longitude - stod(a1.getLongitude())) * M_PI / 180.0;
+
+    double lat_a1 = stod(a1.getLatitude()) * M_PI / 180.0;
+    double lat_a2 = latitude * M_PI / 180.0;
+
+    double a = pow(sin(dLat / 2), 2) + pow(sin(dLon / 2), 2) * cos(lat_a1) * cos(lat_a2);
+    double rad = 6371;
+    double c = 2 * asin(sqrt(a));
+    return rad * c;
+}
+
+void bestAirportCoordinate(Graph<Airport>* flights, vector<Airport> airports, string airport_code, double latitude, double longitude, double radius) {
+    Airport airport1;
+    auto it = airports.begin();
+    for (; it != airports.end(); it++) {
+        if (it->getCode() == airport_code) {
+            airport1 = *it;
+            break;
+        }
+    }
+    if (it == airports.end()) {
+        cout << "Source airport not found!" << endl;
+        return;
+    }
+    vector<Airport> temp;
+    for (Airport a : airports) {
+        if (haversineAirportCoordinate(a, latitude, longitude) <= radius) {
+            temp.push_back(a);
+        }
+    }
+    if (temp.empty()) {
+        cout << "No airports found with the information provided!" << endl;
+        return;
+    }
+    cout << "For the following target coordinates, there are the following airports:" << endl;
+    for (unsigned i = 0; i < temp.size(); i++) {
+        cout << "[" << i << "] - Name: " << temp[i].getName() << " Code: " << temp[i].getCode() << endl;
+    }
+    unsigned number;
+    cout << "Choose its index:" << endl;
+    cin >> number;
+    Airport airport2 = temp[number];
+    auto v = flights->dijkstra(airport1, airport2);
+    for (auto w : v) {
+        cout << w.getCode() << ", ";
+    }
+    cout << endl;
+}
+
+void bestCityAirport(Graph<Airport>* flights, string city, string airport_code, vector<Airport> airports) {
+    Airport airport2;
+    auto it = airports.begin();
+    for (; it != airports.end(); it++) {
+        if (it->getCode() == airport_code) {
+            airport2 = *it;
+            break;
+        }
+    }
+    if (it == airports.end()) {
+        cout << "Source airport not found!" << endl;
+        return;
+    }
+    vector<Airport> temp;
+    for (Airport a : airports) {
+        if (a.getCity() == city) {
+            temp.push_back(a);
+        }
+    }
+    if (temp.empty()) {
+        cout << "Target city not found!" << endl;
+        return;
+    }
+    cout << "For the following target city, there are the following airports:" << endl;
+    for (unsigned i = 0; i < temp.size(); i++) {
+        cout << "[" << i << "] - Name: " << temp[i].getName() << " Code: " << temp[i].getCode() << endl;
+    }
+    unsigned number;
+    cout << "Choose its index:" << endl;
+    cin >> number;
+    Airport airport1 = temp[number];
+    auto v = flights->dijkstra(airport1, airport2);
+    for (auto w : v) {
+        cout << w.getCode() << ", ";
+    }
+    cout << endl;
+}
+
+void bestCityCity(Graph<Airport>* flights, string city1, string city2, vector<Airport> airports) {
+    vector<Airport> temp1;
+    for (Airport a : airports) {
+        if (a.getCity() == city1) {
+            temp1.push_back(a);
+        }
+    }
+    if (temp1.empty()) {
+        cout << "Source city not found!" << endl;
+        return;
+    }
+    cout << "For the following source city, there are the following airports:" << endl;
+    for (unsigned i = 0; i < temp1.size(); i++) {
+        cout << "[" << i << "] - Name: " << temp1[i].getName() << " Code: " << temp1[i].getCode() << endl;
+    }
+    unsigned number1;
+    cout << "Choose its index:" << endl;
+    cin >> number1;
+    Airport airport1 = temp1[number1];
+
+    vector<Airport> temp2;
+    for (Airport a : airports) {
+        if (a.getCity() == city2) {
+            temp2.push_back(a);
+        }
+    }
+    if (temp2.empty()) {
+        cout << "Target city not found!" << endl;
+        return;
+    }
+    cout << "For the following target city, there are the following airports:" << endl;
+    for (unsigned i = 0; i < temp2.size(); i++) {
+        cout << "[" << i << "] - Name: " << temp2[i].getName() << " Code: " << temp2[i].getCode() << endl;
+    }
+    unsigned number2;
+    cout << "Choose its index:" << endl;
+    cin >> number2;
+    Airport airport2 = temp2[number2];
+    auto v = flights->dijkstra(airport1, airport2);
+    for (auto w : v) {
+        cout << w.getCode() << ", ";
+    }
+    cout << endl;
+}
+
+void bestCityCoordinate(Graph<Airport>* flights, vector<Airport> airports, string city, double latitude, double longitude, double radius) {
+    vector<Airport> temp1;
+    for (Airport a : airports) {
+        if (a.getCity() == city) {
+            temp1.push_back(a);
+        }
+    }
+    if (temp1.empty()) {
+        cout << "Source city not found!" << endl;
+        return;
+    }
+    cout << "For the following source city, there are the following airports:" << endl;
+    for (unsigned i = 0; i < temp1.size(); i++) {
+        cout << "[" << i << "] - Name: " << temp1[i].getName() << " Code: " << temp1[i].getCode() << endl;
+    }
+    unsigned number1;
+    cout << "Choose its index:" << endl;
+    cin >> number1;
+    Airport airport1 = temp1[number1];
+
+    vector<Airport> temp2;
+    for (Airport a : airports) {
+        if (haversineAirportCoordinate(a, latitude, longitude) <= radius) {
+            temp2.push_back(a);
+        }
+    }
+    if (temp2.empty()) {
+        cout << "No airports found with the information provided!" << endl;
+        return;
+    }
+    cout << "For the following target coordinates, there are the following airports:" << endl;
+    for (unsigned i = 0; i < temp2.size(); i++) {
+        cout << "[" << i << "] - Name: " << temp2[i].getName() << " Code: " << temp2[i].getCode() << endl;
+    }
+    unsigned number2;
+    cout << "Choose its index:" << endl;
+    cin >> number2;
+    Airport airport2 = temp2[number2];
+    auto v = flights->dijkstra(airport1, airport2);
+    for (auto w : v) {
+        cout << w.getCode() << ", ";
+    }
+    cout << endl;
+}
+
+void bestCoordinateAirport(Graph<Airport>* flights, vector<Airport> airports, string airport_code, double latitude, double longitude, double radius) {
+    vector<Airport> temp;
+    for (Airport a : airports) {
+        if (haversineAirportCoordinate(a, latitude, longitude) <= radius) {
+            temp.push_back(a);
+        }
+    }
+    if (temp.empty()) {
+        cout << "No airports found with the information provided!" << endl;
+        return;
+    }
+    cout << "For the following coordinates, there are the following airports:" << endl;
+    for (unsigned i = 0; i < temp.size(); i++) {
+        cout << "[" << i << "] - Name: " << temp[i].getName() << " Code: " << temp[i].getCode() << endl;
+    }
+    unsigned number;
+    cout << "Choose its index:" << endl;
+    cin >> number;
+    Airport airport1 = temp[number];
+
+    Airport airport2;
+    auto it = airports.begin();
+    for (; it != airports.end(); it++) {
+        if (it->getCode() == airport_code) {
+            airport1 = *it;
+            break;
+        }
+    }
+    if (it == airports.end()) {
+        cout << "Source airport not found!" << endl;
+        return;
+    }
+    auto v = flights->dijkstra(airport1, airport2);
+    for (auto w : v) {
+        cout << w.getCode() << ", ";
+    }
+    cout << endl;
+}
+
+void bestCoordinateCity(Graph<Airport>* flights, vector<Airport> airports, string city, double latitude, double longitude, double radius) {
+    vector<Airport> temp1;
+    for (Airport a : airports) {
+        if (haversineAirportCoordinate(a, latitude, longitude) <= radius) {
+            temp1.push_back(a);
+        }
+    }
+    if (temp1.empty()) {
+        cout << "No airports found with the information provided!" << endl;
+        return;
+    }
+    cout << "For the following coordinates, there are the following airports:" << endl;
+    for (unsigned i = 0; i < temp1.size(); i++) {
+        cout << "[" << i << "] - Name: " << temp1[i].getName() << " Code: " << temp1[i].getCode() << endl;
+    }
+    unsigned number1;
+    cout << "Choose its index:" << endl;
+    cin >> number1;
+    Airport airport1 = temp1[number1];
+
+    vector<Airport> temp2;
+    for (Airport a : airports) {
+        if (a.getCity() == city) {
+            temp2.push_back(a);
+        }
+    }
+    if (temp2.empty()) {
+        cout << "Target city not found!" << endl;
+        return;
+    }
+    cout << "For the following city, there are the following airports:" << endl;
+    for (unsigned i = 0; i < temp2.size(); i++) {
+        cout << "[" << i << "] - Name: " << temp2[i].getName() << " Code: " << temp2[i].getCode() << endl;
+    }
+    unsigned number2;
+    cout << "Choose its index:" << endl;
+    cin >> number2;
+    Airport airport2 = temp2[number2];
+    auto v = flights->dijkstra(airport1, airport2);
+    for (auto w : v) {
+        cout << w.getCode() << ", ";
+    }
+    cout << endl;
+}
+
+void bestCoordinateCoordinate(Graph<Airport>* flights, vector<Airport> airports, double latitude_source, double longitude_source, double radius_source, double latitude_target, double longitude_target, double radius_target) {
+    vector<Airport> temp1;
+    for (Airport a : airports) {
+        if (haversineAirportCoordinate(a, latitude_source, longitude_source) <= radius_source) {
+            temp1.push_back(a);
+        }
+    }
+    if (temp1.empty()) {
+        cout << "No airports found with the information provided!" << endl;
+        return;
+    }
+    cout << "For the following coordinates, there are the following airports:" << endl;
+    for (unsigned i = 0; i < temp1.size(); i++) {
+        cout << "[" << i << "] - Name: " << temp1[i].getName() << " Code: " << temp1[i].getCode() << endl;
+    }
+    unsigned number1;
+    cout << "Choose its index:" << endl;
+    cin >> number1;
+    Airport airport1 = temp1[number1];
+
+    vector<Airport> temp2;
+    for (Airport a : airports) {
+        if (haversineAirportCoordinate(a, latitude_target, longitude_target) <= radius_target) {
+            temp2.push_back(a);
+        }
+    }
+    if (temp2.empty()) {
+        cout << "No airports found with the information provided!" << endl;
+        return;
+    }
+    cout << "For the following coordinates, there are the following airports:" << endl;
+    for (unsigned i = 0; i < temp2.size(); i++) {
+        cout << "[" << i << "] - Name: " << temp2[i].getName() << " Code: " << temp2[i].getCode() << endl;
+    }
+    unsigned number2;
+    cout << "Choose its index:" << endl;
+    cin >> number2;
+    Airport airport2 = temp2[number2];
+    auto v = flights->dijkstra(airport1, airport2);
+    for (auto w : v) {
+        cout << w.getCode() << ", ";
+    }
+    cout << endl;
 }
 
 void menu() {
@@ -543,8 +894,8 @@ void menu() {
     cout << "[7]  - See the number of reachable destinations from a given airport in a maximum number of X stops!" << endl; //Full Working
     cout << "[8]  - See the maximum trip and corresponding pair source-destination airports!" << endl; //TODO
     cout << "[9]  - See the airport with the greatest air traffic capacity!" << endl; //Full Working
-    cout << "[10] - See the essential airports to the network's circulation capability!" << endl; //TODO
-    cout << "[11] - Present the best flight option!" << endl; //TODO
+    cout << "[10] - See the essential airports to the network's circulation capability!" << endl; //Full Working
+    cout << "[11] - Present the best flight option!" << endl; //Full Working
     cout << "[12] - Search for the best flight option with filters!" << endl; //TODO
     cout << "[0]  - Exit the program!" << endl; //Full Working
     cout << "###################################################################################################" << endl;
