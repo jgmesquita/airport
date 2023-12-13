@@ -918,9 +918,9 @@ bool findEdge(Vertex<Airport>* source, Vertex<Airport>* target) {
     return false;
 }
 
-void FloydWarshallDiameter(Graph<Airport>* flights) {
-    int n = flights->getNumVertex();
-    auto vset = flights->getVertexSet();
+void FloydWarshallDiameter(Graph<Airport>* g) {
+    int n = g->getNumVertex();
+    auto vset = g->getVertexSet();
     vector<vector<int>> matrix (n, vector<int>(n));
 
     //Creation of the matrix NxN
@@ -937,35 +937,31 @@ void FloydWarshallDiameter(Graph<Airport>* flights) {
             }
         }
     }
-
-    /*cout << "1: " << matrix.size() << endl; //number of rows
-    cout << "2: " << matrix[0].size() << endl; //number of columns*/
-
-    //Floyd Warhsall's Algorithm
+    // Floyd-Warshall's Algorithm
     for (int k = 0; k < n; k++) {
         for (int i = 0; i < n; i++) {
             for (int j = 0; j < n; j++) {
-                if (matrix[i][j] > matrix[i][k] + matrix[k][j]) {
+                if (matrix[i][k] != numeric_limits<int>::max() &&
+                    matrix[k][j] != numeric_limits<int>::max() &&
+                    matrix[i][j] > matrix[i][k] + matrix[k][j]) {
                     matrix[i][j] = matrix[i][k] + matrix[k][j];
                 }
             }
         }
     }
 
-    //Find the diameter
-    int temp_i;
-    int temp_j;
-    int max = 0;
+    // Find the maximum distance (diameter) in the matrix
+    int diameter = 0;
     for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
-            if (matrix[i][j] > max) {
-                max = matrix[i][j];
-                temp_i = i;
-                temp_j = j;
+            if (matrix[i][j] != numeric_limits<int>::max() && matrix[i][j] > diameter) {
+                diameter = matrix[i][j];
             }
         }
     }
-    cout << "The diameter is: " << max << endl;
+
+    // Print or use the diameter as needed
+    cout << "Diameter of the graph: " << diameter << endl;
 }
 void menu() {
     cout << "###################################################################################################" << endl;
