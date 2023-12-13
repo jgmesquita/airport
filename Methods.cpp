@@ -7,6 +7,7 @@
 #include <unordered_set>
 #include "Airport.cpp"
 #include "Airline.cpp"
+#include "Flight.cpp"
 #include "Graph.h"
 
 using namespace std;
@@ -106,6 +107,31 @@ vector<Airline> loadAirlines() {
         airlines.push_back(a);
     }
     return airlines;
+}
+
+vector<Flight> loadFlightsVector() {
+    ifstream inputFile("flights.csv");
+    vector<Flight> flights_vector;
+    string line;
+    bool isFirstLine = true;
+    while (getline(inputFile, line)) {
+        vector<string> temp;
+        istringstream stream(line);
+        string in;
+        if (isFirstLine) {
+            isFirstLine = false;
+            continue;
+        }
+        while (getline(stream, in, ',')) {
+            temp.push_back(in);
+        }
+        string source = temp[0];
+        string target = temp[1];
+        string airline_code = temp[2];
+        Flight f = Flight(source, target, airline_code);
+        flights_vector.push_back(f);
+    }
+    return flights_vector;
 }
 
 void loadFlights(Graph<Airport>& flights, vector<Airport>& airports, vector<Airline> airlines) {
@@ -882,6 +908,65 @@ void bestCoordinateCoordinate(Graph<Airport>* flights, vector<Airport> airports,
     cout << endl;
 }
 
+bool findEdge(Vertex<Airport>* source, Vertex<Airport>* target) {
+    for (auto& e : source->getAdj()) {
+        auto w = e.getDest();
+        if (w->getInfo() == target->getInfo()) {
+            return true;
+        }
+    }
+    return false;
+}
+
+void FloydWarshallDiameter(Graph<Airport>* flights) {
+    int n = flights->getNumVertex();
+    auto vset = flights->getVertexSet();
+    vector<vector<int>> matrix (n, vector<int>(n));
+
+    //Creation of the matrix NxN
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i == j) {
+                matrix[i][j] = 0;
+            } else {
+                if (findEdge(vset[i], vset[j])) {
+                    matrix[i][j] = 1;
+                } else {
+                    matrix[i][j] = numeric_limits<int>::max();
+                }
+            }
+        }
+    }
+
+    /*cout << "1: " << matrix.size() << endl; //number of rows
+    cout << "2: " << matrix[0].size() << endl; //number of columns*/
+
+    //Floyd Warhsall's Algorithm
+    for (int k = 0; k < n; k++) {
+        for (int i = 0; i < n; i++) {
+            for (int j = 0; j < n; j++) {
+                if (matrix[i][j] > matrix[i][k] + matrix[k][j]) {
+                    matrix[i][j] = matrix[i][k] + matrix[k][j];
+                }
+            }
+        }
+    }
+
+    //Find the diameter
+    int temp_i;
+    int temp_j;
+    int max = 0;
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (matrix[i][j] > max) {
+                max = matrix[i][j];
+                temp_i = i;
+                temp_j = j;
+            }
+        }
+    }
+    cout << "The diameter is: " << max << endl;
+}
 void menu() {
     cout << "###################################################################################################" << endl;
     cout << "Choose one of the following options:" << endl;

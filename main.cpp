@@ -6,6 +6,7 @@ using namespace std;
 void run() {
     vector<Airline> airlines;
     vector<Airport> airports;
+    vector<Flight> flights_vector;
     Graph<Airport> flights;
     set<string> cities;
     set<string> countries;
@@ -17,6 +18,7 @@ void run() {
             airlines = loadAirlines();
             airports = loadAirportsVector(cities, countries);
             flights = loadAirportsGraph();
+            flights_vector = loadFlightsVector();
             loadFlights(flights, airports, airlines);
             cout << "The data was loaded!" << endl;
         }
@@ -119,7 +121,8 @@ void run() {
             }
         }
         else if (input == "8") {
-            continue;
+            Graph<Airport>* reference = &flights;
+            FloydWarshallDiameter(reference);
         }
         else if (input == "9") {
             int k;
