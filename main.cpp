@@ -162,7 +162,7 @@ void run() {
                 string airport_target;
                 cout << "Introduce the code of the target airport:" << endl;
                 cin >> airport_target;
-                bestAirportAirport(reference, airports, airport_source, airport_target);
+                bestAirportAirport(reference, airports, airport_source, airport_target, flights_vector);
             }
             else if (input2 == "0" && input3 == "1") {
                 Graph<Airport>* reference = &flights;

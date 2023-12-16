@@ -530,37 +530,6 @@ void maximumTraffic(Graph<Airport>& flights, int k) {
     }
 }
 
-void longestDistance(Graph<Airport>& flights) {
-    double weight = 0;
-    Vertex<Airport>* temp1;
-    Vertex<Airport>* temp2;
-    for (auto v : flights.getVertexSet()) {
-        for (auto e : v->getAdj()) {
-            if (e.getWeight() > weight) {
-                temp1 = v;
-                temp2 = e.getDest();
-            }
-        }
-    }
-    cout << "Something" << endl;
-}
-
-void dfs_art(Graph<Airport> *g, Vertex<Airport> *v, stack<Airport> &s, unordered_set<Airport, HashAirport, HashAirport> &res, int &i);
-unordered_set<Airport, HashAirport, HashAirport> articulationPoints(Graph<Airport> *g) {
-    unordered_set<Airport, HashAirport, HashAirport> res;
-    stack<Airport> s;
-    int index = 1;
-    for (auto v : g->getVertexSet()) {
-        v->setVisited(false);
-    }
-    for (auto v : g->getVertexSet()) {
-        if(!v->isVisited()) {
-            dfs_art(g, v,s, res, index);
-        }
-    }
-    return res;
-}
-
 void dfs_art(Graph<Airport> *g, Vertex<Airport> *v, stack<Airport> &s, unordered_set<Airport, HashAirport, HashAirport> &l, int &i){
     v->setVisited(true);
     v->setLow(i);
@@ -592,7 +561,37 @@ void dfs_art(Graph<Airport> *g, Vertex<Airport> *v, stack<Airport> &s, unordered
     s.pop();
 }
 
-void bestAirportAirport(Graph<Airport>* flights, vector<Airport>& airports, string airport_code1, string airport_code2) {
+unordered_set<Airport, HashAirport, HashAirport> articulationPoints(Graph<Airport> *g) {
+    unordered_set<Airport, HashAirport, HashAirport> res;
+    stack<Airport> s;
+    int index = 1;
+    for (auto v : g->getVertexSet()) {
+        v->setVisited(false);
+    }
+    for (auto v : g->getVertexSet()) {
+        if(!v->isVisited()) {
+            dfs_art(g, v,s, res, index);
+        }
+    }
+    return res;
+}
+
+void interfacePath(vector<Airport> airports, vector<Flight> flights_vector) {
+    for (unsigned i = 0; i < airports.size() - 1; i++) {
+        set<string> airlines;
+        for (auto it : flights_vector) {
+            if (it.getSource() == airports[i].getCode() && it.getTarget() == airports[i+1].getCode()) {
+                airlines.insert(it.getAirline());
+            }
+        }
+        cout << "From " << airports[i].getCode() << " to " << airports[i+1].getCode() << " by the following airlines:" << endl;
+        for (auto it : airlines) {
+            cout << "-> " << it << endl;
+        }
+    }
+}
+
+void bestAirportAirport(Graph<Airport>* flights, vector<Airport>& airports, string airport_code1, string airport_code2, vector<Flight> flights_vector) {
     Airport airport1;
     auto it = airports.begin();
     for (; it != airports.end(); it++) {
@@ -618,10 +617,7 @@ void bestAirportAirport(Graph<Airport>* flights, vector<Airport>& airports, stri
         return;
     }
     auto v = flights->dijkstra(airport1, airport2);
-    for (auto w : v) {
-        cout << w.getCode() << ", ";
-    }
-    cout << endl;
+    interfacePath(v, flights_vector);
 }
 
 void bestAirportCity(Graph<Airport>* flights, string city, string airport_code, vector<Airport> airports) {
@@ -1025,6 +1021,7 @@ void FloydWarshallDiameter(Graph<Airport>* g) {
     // Print or use the diameter as needed
     cout << "Diameter of the graph: " << diameter << endl;
 }
+
 void menu() {
     cout << "###################################################################################################" << endl;
     cout << "Choose one of the following options:" << endl;
