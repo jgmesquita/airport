@@ -286,6 +286,10 @@ void numberAirportsFromAirport(string& airport_code, vector<Airport>& airports, 
         auto w = e.getDest();
         counter.insert(w->getInfo());
     }
+    cout << "The following airports can be reached from [" << airport_code << "]:" << endl;
+    for (auto it : counter) {
+        cout << "["<< it.getCode() << "]" << " " << it.getName() << " !" << endl;
+    }
     cout << "The following airport has " << counter.size() << " airports has a destination!" << endl;
 }
 
@@ -311,6 +315,10 @@ void numberCitiesFromAirport(string& airport_code, vector<Airport>& airports, Gr
                 cities.insert(city);
             }
         }
+    }
+    cout << "The following cities can be reached from [" << airport_code << "]:" << endl;
+    for (auto it : cities) {
+        cout << it << "!" << endl;
     }
     cout << "The following airport has " << cities.size() << " cities has a destination!" << endl;
 }
@@ -338,6 +346,10 @@ void numberCountriesFromAirport(string& airport_code, vector<Airport>& airports,
             }
         }
     }
+    cout << "The following countries can be reached from [" << airport_code << "]:" << endl;
+    for (auto it : countries) {
+        cout << it << "!" << endl;
+    }
     cout << "The following airport has " << countries.size() << " countries has a destination!" << endl;
 }
 
@@ -354,22 +366,10 @@ void numberCountriesFromCity(string& city, Graph<Airport>& flights) {
     cout << "The following city has " << countries.size() << " countries has a destination!" << endl;
 }
 
-void Auxiliar1(Vertex<Airport>* v, int k, Graph<Airport>* flights, set<Airport>& reachable) {
-    if (k == 0) {
-        reachable.insert(v->getInfo());
-        return;
-    }
-    v->setVisited(true);
-    for (auto & e : v->getAdj()) {
-        auto w = e.getDest();
-        if (!w->isVisited()) {
-            Auxiliar1(w, k-1, flights, reachable);
-        }
-    }
-}
-
 void numberAirportsFromXstops(string& airport_code, int k, vector<Airport>& airports, Graph<Airport>* flights) {
-    set<Airport> reachable;
+    set<pair<Airport,int>> reachable;
+    queue<Vertex<Airport>*> temp;
+    int level = 0;
     auto vertexSet = flights->getVertexSet();
     for (auto v : vertexSet) {
         v->setVisited(false);
@@ -381,26 +381,42 @@ void numberAirportsFromXstops(string& airport_code, int k, vector<Airport>& airp
         }
     }
     auto v = flights->findVertex(x);
-    Auxiliar1(v, k, flights, reachable);
-    cout << "The following airport has " << reachable.size() << " reachable airports in " << k << " stops!" << endl;
-}
-
-void Auxiliar2(Vertex<Airport>* v, int k, Graph<Airport>* flights, set<string>& reachable) {
-    if (k == 0) {
-        reachable.insert(v->getInfo().getCity());
-        return;
-    }
+    temp.push(v);
     v->setVisited(true);
-    for (auto & e : v->getAdj()) {
-        auto w = e.getDest();
-        if (!w->isVisited()) {
-            Auxiliar2(w, k-1, flights, reachable);
+    while(!temp.empty() && level <= k) {
+        int size = temp.size();
+        for (int i = 0; i < size; i++) {
+            auto u = temp.front();
+            reachable.insert({u->getInfo(), level});
+            temp.pop();
+            for (auto &e: u->getAdj()) {
+                auto w = e.getDest();
+                if (!w->isVisited()) {
+                    temp.push(w);
+                    w->setVisited(true);
+                }
+            }
+        }
+        level++;
+    }
+    for (int i = 1; i <= k; i++) {
+        set<Airport> airports_set;
+        cout << "\nThe following airports can be reached by " << i << " stops:\n" << endl;
+        for (auto it : reachable) {
+            if (it.second == i) {
+                if (airports_set.find(it.first) == airports_set.end()) {
+                    cout << "[" << it.first.getCode() << "]" << " " << it.first.getName() << "!" << endl;
+                    airports_set.insert(it.first);
+                }
+            }
         }
     }
 }
 
 void numberCitiesFromXstops(string& airport_code, int k, vector<Airport>& airports, Graph<Airport>* flights) {
-    set<string> reachable;
+    set<pair<Airport,int>> reachable;
+    queue<Vertex<Airport>*> temp;
+    int level = 0;
     auto vertexSet = flights->getVertexSet();
     for (auto v : vertexSet) {
         v->setVisited(false);
@@ -412,26 +428,42 @@ void numberCitiesFromXstops(string& airport_code, int k, vector<Airport>& airpor
         }
     }
     auto v = flights->findVertex(x);
-    Auxiliar2(v, k, flights, reachable);
-    cout << "The following airport has " << reachable.size() << " reachable cities in " << k << " stops!" << endl;
-}
-
-void Auxiliar3(Vertex<Airport>* v, int k, Graph<Airport>* flights, set<string>& reachable) {
-    if (k == 0) {
-        reachable.insert(v->getInfo().getCountry());
-        return;
-    }
+    temp.push(v);
     v->setVisited(true);
-    for (auto & e : v->getAdj()) {
-        auto w = e.getDest();
-        if (!w->isVisited()) {
-            Auxiliar3(w, k-1, flights, reachable);
+    while(!temp.empty() && level <= k) {
+        int size = temp.size();
+        for (int i = 0; i < size; i++) {
+            auto u = temp.front();
+            reachable.insert({u->getInfo(), level});
+            temp.pop();
+            for (auto &e: u->getAdj()) {
+                auto w = e.getDest();
+                if (!w->isVisited()) {
+                    temp.push(w);
+                    w->setVisited(true);
+                }
+            }
+        }
+        level++;
+    }
+    for (int i = 1; i <= k; i++) {
+        set<string> cities;
+        cout << "\nThe following cities can be reached by " << i << " stops:\n" << endl;
+        for (auto it : reachable) {
+            if (it.second == i) {
+                if (cities.find(it.first.getCity()) == cities.end()) {
+                    cout << it.first.getCity() << "!" << endl;
+                    cities.insert(it.first.getCity());
+                }
+            }
         }
     }
 }
 
 void numberCountriesFromXstops(string& airport_code, int k, vector<Airport>& airports, Graph<Airport>* flights) {
-    set<string> reachable;
+    set<pair<Airport,int>> reachable;
+    queue<Vertex<Airport>*> temp;
+    int level = 0;
     auto vertexSet = flights->getVertexSet();
     for (auto v : vertexSet) {
         v->setVisited(false);
@@ -443,9 +475,39 @@ void numberCountriesFromXstops(string& airport_code, int k, vector<Airport>& air
         }
     }
     auto v = flights->findVertex(x);
-    Auxiliar3(v, k, flights, reachable);
-    cout << "The following airport has " << reachable.size() << " reachable countries in " << k << " stops!" << endl;
+    temp.push(v);
+    v->setVisited(true);
+    while(!temp.empty() && level <= k) {
+        int size = temp.size();
+        for (int i = 0; i < size; i++) {
+            auto u = temp.front();
+            reachable.insert({u->getInfo(), level});
+            temp.pop();
+            for (auto &e: u->getAdj()) {
+                auto w = e.getDest();
+                if (!w->isVisited()) {
+                    temp.push(w);
+                    w->setVisited(true);
+                }
+            }
+        }
+        level++;
+    }
+    for (int i = 1; i <= k; i++) {
+        set<string> countries;
+        cout << "\nThe following countries can be reached by " << i << " stops:\n" << endl;
+        for (auto it : reachable) {
+            if (it.second == i) {
+                if (countries.find(it.first.getCountry()) == countries.end()) {
+                    cout << it.first.getCountry() << "!" << endl;
+                    countries.insert(it.first.getCountry());
+                }
+            }
+        }
+    }
 }
+
+
 
 bool compare(pair<Airport, unsigned> p1, pair<Airport, unsigned> p2) {
     return p1.second > p2.second;
