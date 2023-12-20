@@ -172,7 +172,7 @@ void run() {
                 string city_target;
                 cout << "Introduce the target city:" << endl;
                 cin >> city_target;
-                bestAirportCity(reference, city_target, airport_source, airports);
+                bestAirportCity(reference, city_target, airport_source, airports, flights_vector);
             }
             else if (input2 == "0" && input3 == "2") {
                 Graph<Airport>* reference = &flights;
@@ -188,7 +188,7 @@ void run() {
                 double radius;
                 cout << "Introduce the maximum radius:" << endl;
                 cin >> radius;
-                bestAirportCoordinate(reference, airports, airport_source, latitude, longitude, radius);
+                bestAirportCoordinate(reference, airports, airport_source, latitude, longitude, radius, flights_vector);
             }
             if (input2 == "1" && input3 == "0") {
                 Graph<Airport>* reference = &flights;
@@ -198,7 +198,7 @@ void run() {
                 string airport_target;
                 cout << "Introduce the code of the target airport:" << endl;
                 cin >> airport_target;
-                bestCityAirport(reference, city_source, airport_target, airports);
+                bestCityAirport(reference, city_source, airport_target, airports, flights_vector);
 
             }
             else if (input2 == "1" && input3 == "1") {
@@ -209,7 +209,7 @@ void run() {
                 string city_target;
                 cout << "Introduce the target city:" << endl;
                 cin >> city_target;
-                bestCityCity(reference, city_source, city_target, airports);
+                bestCityCity(reference, city_source, city_target, airports, flights_vector);
 
             }
             else if (input2 == "1" && input3 == "2") {
@@ -226,7 +226,7 @@ void run() {
                 double radius;
                 cout << "Introduce the maximum radius:" << endl;
                 cin >> radius;
-                bestCityCoordinate(reference, airports, city_source, latitude, longitude, radius);
+                bestCityCoordinate(reference, airports, city_source, latitude, longitude, radius, flights_vector);
             }
             if (input2 == "2" && input3 == "0") {
                 Graph<Airport>* reference = &flights;
@@ -242,7 +242,7 @@ void run() {
                 string airport_target;
                 cout << "Introduce the target airport code:" << endl;
                 cin >> airport_target;
-                bestCoordinateAirport(reference, airports, airport_target, latitude, longitude, radius);
+                bestCoordinateAirport(reference, airports, airport_target, latitude, longitude, radius, flights_vector);
             }
             else if (input2 == "2" && input3 == "1") {
                 Graph<Airport>* reference = &flights;
@@ -258,7 +258,7 @@ void run() {
                 string city_target;
                 cout << "Introduce the target city:" << endl;
                 cin >> city_target;
-                bestCoordinateCity(reference, airports, city_target, latitude, longitude, radius);
+                bestCoordinateCity(reference, airports, city_target, latitude, longitude, radius, flights_vector);
             }
             else if (input2 == "2" && input3 == "2") {
                 Graph<Airport>* reference = &flights;
@@ -280,11 +280,151 @@ void run() {
                 double radius_target;
                 cout << "Introduce the maximum radius:" << endl;
                 cin >> radius_target;
-                bestCoordinateCoordinate(reference, airports, latitude_source, longitude_source, radius_source, latitude_target, longitude_target, radius_target);
+                bestCoordinateCoordinate(reference, airports, latitude_source, longitude_source, radius_source, latitude_target, longitude_target, radius_target, flights_vector);
             }
         }
         else if (input == "12") {
-            continue;
+            Graph<Airport> g = createCustomGraph(airports, flights_vector);
+            string input2;
+            cout << "Choose the initial criteria:" << endl;
+            cout << "[0] - By airport code!" << endl;
+            cout << "[1] - By city name!" << endl;
+            cout << "[2] - By geographical coordinates" << endl;
+            cin >> input2;
+            string input3;
+            cout << "Choose the final criteria:" << endl;
+            cout << "[0] - By airport code!" << endl;
+            cout << "[1] - By city name!" << endl;
+            cout << "[2] - By geographical coordinates" << endl;
+            cin >> input3;
+            if (input2 == "0" && input3 == "0") {
+                Graph<Airport>* reference = &g;
+                string airport_source;
+                cout << "Introduce the code of the source airport:" << endl;
+                cin >> airport_source;
+                string airport_target;
+                cout << "Introduce the code of the target airport:" << endl;
+                cin >> airport_target;
+                bestAirportAirport(reference, airports, airport_source, airport_target, flights_vector);
+            }
+            else if (input2 == "0" && input3 == "1") {
+                Graph<Airport>* reference = &g;
+                string airport_source;
+                cout << "Introduce the code of the source airport:" << endl;
+                cin >> airport_source;
+                string city_target;
+                cout << "Introduce the target city:" << endl;
+                cin >> city_target;
+                bestAirportCity(reference, city_target, airport_source, airports, flights_vector);
+            }
+            else if (input2 == "0" && input3 == "2") {
+                Graph<Airport>* reference = &g;
+                string airport_source;
+                cout << "Introduce the code of the source airport:" << endl;
+                cin >> airport_source;
+                double latitude;
+                cout << "Introduce the target latitude:" << endl;
+                cin >> latitude;
+                double longitude;
+                cout << "Introduce the target longitude:" << endl;
+                cin >> longitude;
+                double radius;
+                cout << "Introduce the maximum radius:" << endl;
+                cin >> radius;
+                bestAirportCoordinate(reference, airports, airport_source, latitude, longitude, radius, flights_vector);
+            }
+            if (input2 == "1" && input3 == "0") {
+                Graph<Airport>* reference = &g;
+                string city_source;
+                cout << "Introduce the source city:" << endl;
+                cin >> city_source;
+                string airport_target;
+                cout << "Introduce the code of the target airport:" << endl;
+                cin >> airport_target;
+                bestCityAirport(reference, city_source, airport_target, airports, flights_vector);
+
+            }
+            else if (input2 == "1" && input3 == "1") {
+                Graph<Airport>* reference = &g;
+                string city_source;
+                cout << "Introduce the source city:" << endl;
+                cin >> city_source;
+                string city_target;
+                cout << "Introduce the target city:" << endl;
+                cin >> city_target;
+                bestCityCity(reference, city_source, city_target, airports, flights_vector);
+
+            }
+            else if (input2 == "1" && input3 == "2") {
+                Graph<Airport>* reference = &g;
+                string city_source;
+                cout << "Introduce the source city:" << endl;
+                cin >> city_source;
+                double latitude;
+                cout << "Introduce the target latitude:" << endl;
+                cin >> latitude;
+                double longitude;
+                cout << "Introduce the target longitude:" << endl;
+                cin >> longitude;
+                double radius;
+                cout << "Introduce the maximum radius:" << endl;
+                cin >> radius;
+                bestCityCoordinate(reference, airports, city_source, latitude, longitude, radius, flights_vector);
+            }
+            if (input2 == "2" && input3 == "0") {
+                Graph<Airport>* reference = &g;
+                double latitude;
+                cout << "Introduce the source latitude:" << endl;
+                cin >> latitude;
+                double longitude;
+                cout << "Introduce the source longitude:" << endl;
+                cin >> longitude;
+                double radius;
+                cout << "Introduce the maximum radius:" << endl;
+                cin >> radius;
+                string airport_target;
+                cout << "Introduce the target airport code:" << endl;
+                cin >> airport_target;
+                bestCoordinateAirport(reference, airports, airport_target, latitude, longitude, radius, flights_vector);
+            }
+            else if (input2 == "2" && input3 == "1") {
+                Graph<Airport>* reference = &g;
+                double latitude;
+                cout << "Introduce the source latitude:" << endl;
+                cin >> latitude;
+                double longitude;
+                cout << "Introduce the source longitude:" << endl;
+                cin >> longitude;
+                double radius;
+                cout << "Introduce the maximum radius:" << endl;
+                cin >> radius;
+                string city_target;
+                cout << "Introduce the target city:" << endl;
+                cin >> city_target;
+                bestCoordinateCity(reference, airports, city_target, latitude, longitude, radius, flights_vector);
+            }
+            else if (input2 == "2" && input3 == "2") {
+                Graph<Airport>* reference = &g;
+                double latitude_source;
+                cout << "Introduce the source latitude:" << endl;
+                cin >> latitude_source;
+                double longitude_source;
+                cout << "Introduce the source longitude:" << endl;
+                cin >> longitude_source;
+                double radius_source;
+                cout << "Introduce the maximum radius:" << endl;
+                cin >> radius_source;
+                double latitude_target;
+                cout << "Introduce the target latitude:" << endl;
+                cin >> latitude_target;
+                double longitude_target;
+                cout << "Introduce the target longitude:" << endl;
+                cin >> longitude_target;
+                double radius_target;
+                cout << "Introduce the maximum radius:" << endl;
+                cin >> radius_target;
+                bestCoordinateCoordinate(reference, airports, latitude_source, longitude_source, radius_source, latitude_target, longitude_target, radius_target, flights_vector);
+            }
         }
         menu();
     }

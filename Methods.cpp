@@ -620,7 +620,7 @@ void bestAirportAirport(Graph<Airport>* flights, vector<Airport>& airports, stri
     interfacePath(v, flights_vector);
 }
 
-void bestAirportCity(Graph<Airport>* flights, string city, string airport_code, vector<Airport> airports) {
+void bestAirportCity(Graph<Airport>* flights, string city, string airport_code, vector<Airport> airports, vector<Flight> flights_vector) {
     Airport airport1;
     auto it = airports.begin();
     for (; it != airports.end(); it++) {
@@ -652,10 +652,7 @@ void bestAirportCity(Graph<Airport>* flights, string city, string airport_code, 
     cin >> number;
     Airport airport2 = temp[number];
     auto v = flights->dijkstra(airport1, airport2);
-    for (auto w : v) {
-        cout << w.getCode() << ", ";
-    }
-    cout << endl;
+    interfacePath(v, flights_vector);
 }
 
 double haversineAirportCoordinate(Airport a1, double latitude, double longitude) {
@@ -671,7 +668,7 @@ double haversineAirportCoordinate(Airport a1, double latitude, double longitude)
     return rad * c;
 }
 
-void bestAirportCoordinate(Graph<Airport>* flights, vector<Airport> airports, string airport_code, double latitude, double longitude, double radius) {
+void bestAirportCoordinate(Graph<Airport>* flights, vector<Airport> airports, string airport_code, double latitude, double longitude, double radius, vector<Flight> flights_vector) {
     Airport airport1;
     auto it = airports.begin();
     for (; it != airports.end(); it++) {
@@ -703,13 +700,10 @@ void bestAirportCoordinate(Graph<Airport>* flights, vector<Airport> airports, st
     cin >> number;
     Airport airport2 = temp[number];
     auto v = flights->dijkstra(airport1, airport2);
-    for (auto w : v) {
-        cout << w.getCode() << ", ";
-    }
-    cout << endl;
+    interfacePath(v, flights_vector);
 }
 
-void bestCityAirport(Graph<Airport>* flights, string city, string airport_code, vector<Airport> airports) {
+void bestCityAirport(Graph<Airport>* flights, string city, string airport_code, vector<Airport> airports, vector<Flight> flights_vector) {
     Airport airport2;
     auto it = airports.begin();
     for (; it != airports.end(); it++) {
@@ -741,13 +735,10 @@ void bestCityAirport(Graph<Airport>* flights, string city, string airport_code, 
     cin >> number;
     Airport airport1 = temp[number];
     auto v = flights->dijkstra(airport1, airport2);
-    for (auto w : v) {
-        cout << w.getCode() << ", ";
-    }
-    cout << endl;
+    interfacePath(v, flights_vector);
 }
 
-void bestCityCity(Graph<Airport>* flights, string city1, string city2, vector<Airport> airports) {
+void bestCityCity(Graph<Airport>* flights, string city1, string city2, vector<Airport> airports, vector<Flight> flights_vector) {
     vector<Airport> temp1;
     for (Airport a : airports) {
         if (a.getCity() == city1) {
@@ -786,13 +777,10 @@ void bestCityCity(Graph<Airport>* flights, string city1, string city2, vector<Ai
     cin >> number2;
     Airport airport2 = temp2[number2];
     auto v = flights->dijkstra(airport1, airport2);
-    for (auto w : v) {
-        cout << w.getCode() << ", ";
-    }
-    cout << endl;
+    interfacePath(v, flights_vector);
 }
 
-void bestCityCoordinate(Graph<Airport>* flights, vector<Airport> airports, string city, double latitude, double longitude, double radius) {
+void bestCityCoordinate(Graph<Airport>* flights, vector<Airport> airports, string city, double latitude, double longitude, double radius, vector<Flight> flights_vector) {
     vector<Airport> temp1;
     for (Airport a : airports) {
         if (a.getCity() == city) {
@@ -831,13 +819,10 @@ void bestCityCoordinate(Graph<Airport>* flights, vector<Airport> airports, strin
     cin >> number2;
     Airport airport2 = temp2[number2];
     auto v = flights->dijkstra(airport1, airport2);
-    for (auto w : v) {
-        cout << w.getCode() << ", ";
-    }
-    cout << endl;
+    interfacePath(v, flights_vector);
 }
 
-void bestCoordinateAirport(Graph<Airport>* flights, vector<Airport> airports, string airport_code, double latitude, double longitude, double radius) {
+void bestCoordinateAirport(Graph<Airport>* flights, vector<Airport> airports, string airport_code, double latitude, double longitude, double radius, vector<Flight> flights_vector) {
     vector<Airport> temp;
     for (Airport a : airports) {
         if (haversineAirportCoordinate(a, latitude, longitude) <= radius) {
@@ -870,13 +855,10 @@ void bestCoordinateAirport(Graph<Airport>* flights, vector<Airport> airports, st
         return;
     }
     auto v = flights->dijkstra(airport1, airport2);
-    for (auto w : v) {
-        cout << w.getCode() << ", ";
-    }
-    cout << endl;
+    interfacePath(v, flights_vector);
 }
 
-void bestCoordinateCity(Graph<Airport>* flights, vector<Airport> airports, string city, double latitude, double longitude, double radius) {
+void bestCoordinateCity(Graph<Airport>* flights, vector<Airport> airports, string city, double latitude, double longitude, double radius, vector<Flight> flights_vector) {
     vector<Airport> temp1;
     for (Airport a : airports) {
         if (haversineAirportCoordinate(a, latitude, longitude) <= radius) {
@@ -915,13 +897,10 @@ void bestCoordinateCity(Graph<Airport>* flights, vector<Airport> airports, strin
     cin >> number2;
     Airport airport2 = temp2[number2];
     auto v = flights->dijkstra(airport1, airport2);
-    for (auto w : v) {
-        cout << w.getCode() << ", ";
-    }
-    cout << endl;
+    interfacePath(v, flights_vector);
 }
 
-void bestCoordinateCoordinate(Graph<Airport>* flights, vector<Airport> airports, double latitude_source, double longitude_source, double radius_source, double latitude_target, double longitude_target, double radius_target) {
+void bestCoordinateCoordinate(Graph<Airport>* flights, vector<Airport> airports, double latitude_source, double longitude_source, double radius_source, double latitude_target, double longitude_target, double radius_target, vector<Flight> flights_vector) {
     vector<Airport> temp1;
     for (Airport a : airports) {
         if (haversineAirportCoordinate(a, latitude_source, longitude_source) <= radius_source) {
@@ -960,10 +939,7 @@ void bestCoordinateCoordinate(Graph<Airport>* flights, vector<Airport> airports,
     cin >> number2;
     Airport airport2 = temp2[number2];
     auto v = flights->dijkstra(airport1, airport2);
-    for (auto w : v) {
-        cout << w.getCode() << ", ";
-    }
-    cout << endl;
+    interfacePath(v, flights_vector);
 }
 
 bool findEdge(Vertex<Airport>* source, Vertex<Airport>* target) {
@@ -1020,6 +996,83 @@ void FloydWarshallDiameter(Graph<Airport>* g) {
 
     // Print or use the diameter as needed
     cout << "Diameter of the graph: " << diameter << endl;
+}
+
+Graph<Airport> createCustomGraph(vector<Airport> airports, vector<Flight> flights_vector) {
+    Graph<Airport> g;
+    string airport_code;
+    cout << "Introduce the code of the airports you wish to travel:" << endl;
+    while(cin >> airport_code) {
+        auto it = airports.begin();
+        for (; it != airports.end(); it++) {
+            if (it->getCode() == airport_code) {
+                g.addVertex(*it);
+                break;
+            }
+        }
+        if (it == airports.end()) {
+            cout << "Invalid airport! Try another one!" << endl;
+            continue;
+        }
+        string input;
+        cout << "Add more airports? [Yes/No]" << endl;
+        cin >> input;
+        if (input == "Yes") {
+            cout << "Airport Code: " << endl;
+            continue;
+        }
+        else if (input == "No") {
+            break;
+        }
+        else {
+            cout << "Invalid input! Try again!" << endl;
+            continue;
+        }
+    }
+    cout << "Introduce the code of the airline you wish to travel:" << endl;
+    string airline_code;
+    while(cin >> airline_code) {
+        unsigned count = 0;
+        auto it = flights_vector.begin();
+        for (; it != flights_vector.end(); it++) {
+            if (it->getAirline() == airline_code) {
+                string a1 = it->getSource();
+                string a2 = it->getTarget();
+                Airport x;
+                Airport y;
+                for (Airport a : airports) {
+                    if (a.getCode() == a1) {
+                        x = a;
+                    }
+                    else if (a.getCode() == a2) {
+                        y = a;
+                    }
+                }
+                break;
+                g.addEdge(x,y, haversineAirport(x,y), count);
+            }
+            count++;
+        }
+        if (it == flights_vector.end()) {
+            cout << "Invalid airport! Try another one!" << endl;
+            continue;
+        }
+        string input;
+        cout << "Add more airlines? [Yes/No]" << endl;
+        cin >> input;
+        if (input == "Yes") {
+            cout << "Airline Code: " << endl;
+            continue;
+        }
+        else if (input == "No") {
+            break;
+        }
+        else {
+            cout << "Invalid input! Try again!" << endl;
+            continue;
+        }
+    }
+    return g;
 }
 
 void menu() {
