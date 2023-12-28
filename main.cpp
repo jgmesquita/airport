@@ -348,10 +348,14 @@ void run() {
                      << " --------------------------------" << endl;
                 cin >> latitude_source;
                 double longitude_source;
-                cout << "Introduce the source longitude:" << endl;
+                cout << " ----- * Source_LONGITUDE * ------"<< endl
+                     << "| Introduce the source longitude: |"<< endl
+                     << " ---------------------------------" << endl;
                 cin >> longitude_source;
                 double radius_source;
-                cout << "Introduce the maximum radius:" << endl;
+                cout << " ----- * Source_Maximum_radius * -----"<< endl
+                    << "| Introduce the source maximum radius: |"<< endl
+                    << " --------------------------------------" << endl;
                 cin >> radius_source;
                 double latitude_target;
                 cout << "Introduce the target latitude:" << endl;
@@ -360,7 +364,7 @@ void run() {
                 cout << "Introduce the target longitude:" << endl;
                 cin >> longitude_target;
                 double radius_target;
-                cout << "Introduce the maximum radius:" << endl;
+                cout << "Introduce the target maximum radius:" << endl;
                 cin >> radius_target;
                 bestCoordinateCoordinate(reference, airports, latitude_source, longitude_source, radius_source, latitude_target, longitude_target, radius_target, flights_vector);
             }
@@ -461,7 +465,9 @@ void run() {
                      << " --------------------------------" << endl;
                 cin >> latitude;
                 double longitude;
-                cout << "Introduce the source longitude:" << endl;
+                cout << " ----- * Source_LONGITUDE * ------"<< endl
+                     << "| Introduce the source longitude: |"<< endl
+                     << " ---------------------------------" << endl;
                 cin >> longitude;
                 double radius;
                 cout << "Introduce the maximum radius:" << endl;
@@ -479,7 +485,9 @@ void run() {
                      << " --------------------------------" << endl;
                 cin >> latitude;
                 double longitude;
-                cout << "Introduce the source longitude:" << endl;
+                cout << " ----- * Source_LONGITUDE * ------"<< endl
+                     << "| Introduce the source longitude: |"<< endl
+                     << " ---------------------------------" << endl;
                 cin >> longitude;
                 double radius;
                 cout << "Introduce the maximum radius:" << endl;
@@ -497,7 +505,9 @@ void run() {
                      << " --------------------------------" << endl;
                 cin >> latitude_source;
                 double longitude_source;
-                cout << "Introduce the source longitude:" << endl;
+                cout << " ----- * Source_LONGITUDE * ------"<< endl
+                     << "| Introduce the source longitude: |"<< endl
+                     << " ---------------------------------" << endl;
                 cin >> longitude_source;
                 double radius_source;
                 cout << "Introduce the maximum radius:" << endl;

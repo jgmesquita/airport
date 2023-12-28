@@ -1076,20 +1076,20 @@ Graph<Airport> createCustomGraph(vector<Airport> airports, vector<Flight> flight
 }
 
 void menu() {
-    cout << "###################################################################################################" << endl;
-    cout << "Choose one of the following options:" << endl;
-    cout << "[1]  - Load data from files!" << endl; //Full Working
-    cout << "[2]  - See the global number of airports and available flights! " << endl; //Full Working
-    cout << "[3]  - See the number of flights out of an airport and from how many airlines!" << endl; //Full Working
-    cout << "[4]  - See the number of flights of a given airline/city!" << endl; //Only city working!
-    cout << "[5]  - See the number of different countries of a given airport/city" << endl; //Full Working
-    cout << "[6]  - See the number of destinations available for a given airport!" << endl; //Full Working
-    cout << "[7]  - See the number of reachable destinations from a given airport in a maximum number of X stops!" << endl; //Full Working
-    cout << "[8]  - See the maximum trip and corresponding pair source-destination airports!" << endl; //TODO
-    cout << "[9]  - See the airport with the greatest air traffic capacity!" << endl; //Full Working
-    cout << "[10] - See the essential airports to the network's circulation capability!" << endl; //Full Working
-    cout << "[11] - Present the best flight option!" << endl; //Full Working
-    cout << "[12] - Search for the best flight option with filters!" << endl; //TODO
-    cout << "[0]  - Exit the program!" << endl; //Full Working
-    cout << "###################################################################################################" << endl;
+    cout << "###############################################| MENU |#################################################" << endl;
+    cout << "# Choose one of the following options:                                                                 #" << endl;
+    cout << "# [1]  - Load data from files!                                                                         #" << endl; //Full Working
+    cout << "# [2]  - See the global number of airports and available flights!                                      #" << endl; //Full Working
+    cout << "# [3]  - See the number of flights out of an airport and from how many airlines!                       #" << endl; //Full Working
+    cout << "# [4]  - See the number of flights of a given airline/city!                                            #" << endl; //Only city working!
+    cout << "# [5]  - See the number of different countries of a given airport/city                                 #" << endl; //Full Working
+    cout << "# [6]  - See the number of destinations available for a given airport!                                 #" << endl; //Full Working
+    cout << "# [7]  - See the number of reachable destinations from a given airport in a maximum number of X stops! #" << endl; //Full Working
+    cout << "# [8]  - See the maximum trip and corresponding pair source-destination airports!                      #" << endl; //TODO
+    cout << "# [9]  - See the airport with the greatest air traffic capacity!                                       #" << endl; //Full Working
+    cout << "# [10] - See the essential airports to the network's circulation capability!                           #" << endl; //Full Working
+    cout << "# [11] - Present the best flight option!                                                               #" << endl; //Full Working
+    cout << "# [12] - Search for the best flight option with filters!                                               #" << endl; //TODO
+    cout << "# [0]  - Exit the program!                                                                             #" << endl; //Full Working
+    cout << "########################################################################################################" << endl;
 }
