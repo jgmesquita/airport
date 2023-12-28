@@ -1,9 +1,6 @@
 # ninja log v5
-2	803	7229729880287778	CMakeFiles/Projeto_2_AED.dir/main.cpp.obj	bb17f4873dc2ad45
-1076	1327	7229562415321636	Projeto_2_AED.exe	5f5ee8da599398e4
-20	666	7229722586126195	CMakeFiles/Projeto_2_AED.dir/Airport.cpp.obj	923808063987bcd5
-14	729	7229726771816818	CMakeFiles/Projeto_2_AED.dir/Load.cpp.obj	1bef6daa6de043e4
-9	788	7229729880108640	CMakeFiles/Projeto_2_AED.dir/Methods.cpp.obj	711a7f192e949279
-36	679	7229722586306312	CMakeFiles/Projeto_2_AED.dir/Airline.cpp.obj	b533099f356366d7
-11	981	7229731023557563	CMakeFiles/Projeto_2_AED.dir/Methods.cpp.obj	711a7f192e949279
-4	985	7229731023597590	CMakeFiles/Projeto_2_AED.dir/main.cpp.obj	bb17f4873dc2ad45
+7	329	1703778675165007213	airportAED	5619068ab2720f83
+9	9522	1703778646765615609	CMakeFiles/airportAED.dir/Users/tatianalin/CLionProjects/airportAED/airport/main.cpp.o	ff26fed3b74a10d9
+1	1572	1703778613074224739	CMakeFiles/airportAED.dir/Users/tatianalin/CLionProjects/airportAED/main.cpp.o	71c2412c39cd0609
+1	367	1703778813794485653	build.ninja	cb02dc7f686dbdf2
+1	239	1703778813794485653	build.ninja	cb02dc7f686dbdf2
