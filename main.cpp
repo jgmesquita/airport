@@ -20,7 +20,7 @@ void run() {
             flights = loadAirportsGraph();
             flights_vector = loadFlightsVector();
             loadFlights(flights, airports, airlines);
-            cout << "The data was loaded!" << endl;
+            cout <<  "<------- The data was loaded! ------->"  << endl;
         }
         else if (input == "2") {
             numberAirport(flights);
@@ -31,58 +31,76 @@ void run() {
         }
         else if (input == "3") {
             string airport_code;
-            cout << "Introduce the code from the airport!" << endl;
+            cout << " ------------ AIRPORT_CODE ------------"<< endl
+                 << "| Introduce the code from the airport! |"<< endl
+                 << " --------------------------------------"  << endl;
             cin >> airport_code;
             numberFlightsFromAirport(airports, airlines, flights, airport_code);
         }
         else if (input == "4") {
-            cout << "Choose one of the following options:" << endl;
-            cout << "[0] - Select city!" << endl;
-            cout << "[1] - Select airline!" << endl;
+            cout << " --------------< SELECT >--------------"<< endl
+                 << "| Choose one of the following options: |"<< endl
+                 << "| [0] - Select city!                   |"<< endl
+                 << "| [1] - Select airline!                |"<< endl
+                 << " --------------------------------------"<< endl;
             string input2;
             cin >> input2;
             if (input2 == "0") {
                 string city;
-                cout << "Introduce the name of the city:" << endl;
+                cout << " ----------- CITY_NAME -----------"<< endl
+                     << "| Introduce the name of the city: |"<< endl
+                     << " ---------------------------------"  << endl;
                 cin >> city;
                 numberFlightsCity(city, flights);
             }
             else if (input2 == "1") {
                 string airline_code;
-                cout << "Introduce the airline code:" << endl;
+                cout << " ------- AIRLINE_CODE ------- "<< endl
+                     << "| Introduce the airline code:| "<< endl
+                     << " ----------------------------"  << endl;
                 cin >> airline_code;
                 numberFlightsAirline(airline_code, airlines, flights);
             }
         }
         else if (input == "5") {
             string input2;
-            cout << "Choose one of the following options:" << endl;
-            cout << "[0] - From an airport!" << endl;
-            cout << "[1] - From a city!" << endl;
+            cout << " --------------< SELECT >--------------"<< endl
+                 << "| Choose one of the following options: |"<< endl
+                 << "| [0] - From an airport!               |"<< endl
+                 << "| [1] - From a city!                   |"<< endl
+                 << " --------------------------------------"<< endl;
             cin >> input2;
             if (input2 == "0") {
                 string airport_code;
-                cout << "Introduce the code of the airport:" << endl;
+                cout << " ---------- AIRPORT_CODE -----------"<< endl
+                     << "| Introduce the code of the airport |:"<< endl
+                     << " -----------------------------------"  << endl;
                 cin >> airport_code;
                 numberCountriesFromAirport(airport_code, airports, flights);
 
             }
             else if (input2 == "1") {
                 string city;
-                cout << "Introduce the name of the city:" << endl;
+                cout << " ----------- CITY_NAME -----------"<< endl
+                     << "| Introduce the name of the city: |"<< endl
+                     << " ---------------------------------"  << endl;
                 cin >> city;
                 numberCountriesFromCity(city, flights);
             }
         }
         else if (input == "6") {
             string airport_code;
-            cout << "Introduce the airport code:" << endl;
+            cout << " ---------- AIRPORT_CODE -----------"<< endl
+                 << "| Introduce the code of the airport |:"<< endl
+                 << " -----------------------------------"  << endl;
             cin >> airport_code;
             string input2;
-            cout << "Choose one of the following options:" << endl;
-            cout << "[0] - Airports available!" << endl;
-            cout << "[1] - Cities available!" << endl;
-            cout << "[2] - Countries available!" << endl;
+            cout << " --------------< SELECT >--------------"<< endl
+                 << "| Choose one of the following options: |"<< endl
+                 << "| [0] - Airports available!            |"<< endl
+                 << "| [1] - Cities available!              |"<< endl
+                 << "| [2] - Countries available!           |"<< endl
+                 << " --------------------------------------"<< endl;
             cin >> input2;
             if (input2 == "0") {
                 numberAirportsFromAirport(airport_code, airports, flights);
@@ -96,18 +114,24 @@ void run() {
         }
         else if (input == "7") {
             int k;
-            cout << "Introduce the number of stops:" << endl;
+            cout << " ------- * NUMBER_STOPS * -------"<< endl
+                 << "| Introduce the number of stops: |"<< endl
+                 << " --------------------------------" <<endl;
             cin >> k;
 
             string airport_code;
-            cout << "Introduce the code of the airport:" << endl;
+            cout << " ---------- AIRPORT_CODE -----------"<< endl
+                 << "| Introduce the code of the airport |:"<< endl
+                 << " -----------------------------------"  << endl;
             cin >> airport_code;
 
             string input2;
-            cout << "Choose one of the following options:" << endl;
-            cout << "[0] - Number of reachable airports!" << endl;
-            cout << "[1] - Number of reachable cities!" << endl;
-            cout << "[2] - Number of reachable countries!" << endl;
+            cout << " --------------< SELECT >--------------"<< endl
+                 << "| Choose one of the following options: |"<< endl
+                 << "| [0] - Number of reachable airports!  |"<< endl
+                 << "| [1] - Number of reachable cities!    |"<< endl
+                 << "| [2] - Number of reachable countries! |"<< endl
+                 << " --------------------------------------"<< endl;
             cin >> input2;
             Graph<Airport>* reference = &flights;
             if (input2 == "0") {
@@ -126,7 +150,9 @@ void run() {
         }
         else if (input == "9") {
             int k;
-            cout << "Introduce the size of the list:" << endl;
+            cout << " --------- * SIZE_LIST * ---------"<< endl
+                 << "| Introduce the size of the list: |"<< endl
+                 << " ---------------------------------"<< endl;
             cin >> k;
             maximumTraffic(flights, k);
         }
@@ -134,69 +160,95 @@ void run() {
             int count = 0;
             Graph<Airport>* reference = &flights;
             auto it = articulationPoints(reference);
-            cout << "The following airports are essential for the network's circulation capability:" << endl;
+            cout << " ------------------------------------------------------------------------------"<<endl;
+            cout << " The following airports are essential for the network's circulation capability: " << endl;
             for (Airport a : it) {
                 count++;
                 cout << "-> [" << a.getCode() << "] - " << a.getName() << endl;
             }
-            cout << "There are " << count << " essential airports!" << endl;
+            cout << " There are " << count << " essential airports!                                  " << endl;
+            cout << " ------------------------------------------------------------------------------" << endl;
         }
         else if (input == "11") {
             string input2;
-            cout << "Choose the initial criteria:" << endl;
-            cout << "[0] - By airport code!" << endl;
-            cout << "[1] - By city name!" << endl;
-            cout << "[2] - By geographical coordinates" << endl;
+            cout << " ------------< SELECT >-------------" << endl
+                 << "| Choose the initial criteria:      |"<< endl
+                 << "| [0] - By airport code!            |"<< endl
+                 << "| [1] - By city name!               |"<< endl
+                 << "| [2] - By geographical coordinates |"<< endl
+                 << " -----------------------------------" << endl;
             cin >> input2;
             string input3;
-            cout << "Choose the final criteria:" << endl;
-            cout << "[0] - By airport code!" << endl;
-            cout << "[1] - By city name!" << endl;
-            cout << "[2] - By geographical coordinates" << endl;
+            cout << " ------------< SELECT >-------------"<< endl
+                 << "| Choose the final criteria:        |"<< endl
+                 << "| [0] - By airport code!            |"<< endl
+                 << "| [1] - By city name!               |"<< endl
+                 << "| [2] - By geographical coordinates |"<< endl
+                 << " -----------------------------------" << endl;
             cin >> input3;
             if (input2 == "0" && input3 == "0") {
                 Graph<Airport>* reference = &flights;
                 string airport_source;
-                cout << "Introduce the code of the source airport:" << endl;
+                cout << " ---------- Source_AIRPORT_CODE ------------"<< endl
+                     << "| Introduce the code of the source airport: |"<< endl
+                     << " -------------------------------------------" << endl;
                 cin >> airport_source;
                 string airport_target;
-                cout << "Introduce the code of the target airport:" << endl;
+                cout << " ---------- Target_AIRPORT_CODE ------------"<< endl
+                     << "| Introduce the code of the target airport: |"<< endl
+                     << " -------------------------------------------" << endl;
                 cin >> airport_target;
                 bestAirportAirport(reference, airports, airport_source, airport_target, flights_vector);
             }
             else if (input2 == "0" && input3 == "1") {
                 Graph<Airport>* reference = &flights;
                 string airport_source;
-                cout << "Introduce the code of the source airport:" << endl;
+                cout << " ---------- Source_AIRPORT_CODE ------------"<< endl
+                     << "| Introduce the code of the source airport: |"<< endl
+                     << " -------------------------------------------" << endl;
                 cin >> airport_source;
                 string city_target;
-                cout << "Introduce the target city:" << endl;
+                cout << " ------- Target_CITY --------"<< endl
+                     << "| Introduce the target city: |"<< endl
+                     << " ----------------------------" << endl;
                 cin >> city_target;
                 bestAirportCity(reference, city_target, airport_source, airports, flights_vector);
             }
             else if (input2 == "0" && input3 == "2") {
                 Graph<Airport>* reference = &flights;
                 string airport_source;
-                cout << "Introduce the code of the source airport:" << endl;
+                cout << " ---------- Source_AIRPORT_CODE ------------"<< endl
+                     << "| Introduce the code of the source airport: |"<< endl
+                     << " -------------------------------------------" << endl;
                 cin >> airport_source;
                 double latitude;
-                cout << "Introduce the target latitude:" << endl;
+                cout << " ----- * Target_LATITUDE * ------"<< endl
+                     << "| Introduce the target latitude: |"<< endl
+                     << " --------------------------------" << endl;
                 cin >> latitude;
                 double longitude;
-                cout << "Introduce the target longitude:" << endl;
+                cout << " ----- * Target_LONGITUDE * ------"<< endl
+                     << "| Introduce the target longitude: |"<< endl
+                     << " ---------------------------------" << endl;
                 cin >> longitude;
                 double radius;
-                cout << "Introduce the maximum radius:" << endl;
+                cout << " ----- * Maximum_radius * ------"<< endl
+                     << "| Introduce the maximum radius: |"<< endl
+                     << " -------------------------------" << endl;
                 cin >> radius;
                 bestAirportCoordinate(reference, airports, airport_source, latitude, longitude, radius, flights_vector);
             }
             if (input2 == "1" && input3 == "0") {
                 Graph<Airport>* reference = &flights;
                 string city_source;
-                cout << "Introduce the source city:" << endl;
+                cout << " ------- Source_CITY --------"<< endl
+                     << "| Introduce the source city: |"<< endl
+                     << " ----------------------------" << endl;
                 cin >> city_source;
                 string airport_target;
-                cout << "Introduce the code of the target airport:" << endl;
+                cout << " ---------- Target_AIRPORT_CODE ------------"<< endl
+                     << "| Introduce the code of the target airport: |"<< endl
+                     << " -------------------------------------------" << endl;
                 cin >> airport_target;
                 bestCityAirport(reference, city_source, airport_target, airports, flights_vector);
 
@@ -204,10 +256,14 @@ void run() {
             else if (input2 == "1" && input3 == "1") {
                 Graph<Airport>* reference = &flights;
                 string city_source;
-                cout << "Introduce the source city:" << endl;
+                cout << " ------- Source_CITY --------"<< endl
+                     << "| Introduce the source city: |"<< endl
+                     << " ----------------------------" << endl;
                 cin >> city_source;
                 string city_target;
-                cout << "Introduce the target city:" << endl;
+                cout << " ------- Target_CITY --------"<< endl
+                     << "| Introduce the target city: |"<< endl
+                     << " ----------------------------" << endl;
                 cin >> city_target;
                 bestCityCity(reference, city_source, city_target, airports, flights_vector);
 
@@ -215,55 +271,81 @@ void run() {
             else if (input2 == "1" && input3 == "2") {
                 Graph<Airport>* reference = &flights;
                 string city_source;
-                cout << "Introduce the source city:" << endl;
+                cout << " ------- Source_CITY --------"<< endl
+                     << "| Introduce the source city: |"<< endl
+                     << " ----------------------------" << endl;
                 cin >> city_source;
                 double latitude;
-                cout << "Introduce the target latitude:" << endl;
+                cout << " ----- * Target_LATITUDE * ------"<< endl
+                     << "| Introduce the target latitude: |"<< endl
+                     << " --------------------------------" << endl;
                 cin >> latitude;
                 double longitude;
-                cout << "Introduce the target longitude:" << endl;
+                cout << " ----- * Target_LONGITUDE * ------"<< endl
+                     << "| Introduce the target longitude: |"<< endl
+                     << " ---------------------------------" << endl;
                 cin >> longitude;
                 double radius;
-                cout << "Introduce the maximum radius:" << endl;
+                cout << " ----- * Maximum_radius * ------"<< endl
+                     << "| Introduce the maximum radius: |"<< endl
+                     << " -------------------------------" << endl;
                 cin >> radius;
                 bestCityCoordinate(reference, airports, city_source, latitude, longitude, radius, flights_vector);
             }
             if (input2 == "2" && input3 == "0") {
                 Graph<Airport>* reference = &flights;
                 double latitude;
-                cout << "Introduce the source latitude:" << endl;
+                cout << " ----- * Source_LATITUDE * ------"<< endl
+                     << "| Introduce the source latitude: |"<< endl
+                     << " --------------------------------" << endl;
                 cin >> latitude;
                 double longitude;
-                cout << "Introduce the source longitude:" << endl;
+                cout << " ----- * Source_LONGITUDE * ------"<< endl
+                     << "| Introduce the source longitude: |"<< endl
+                     << " ---------------------------------" << endl;
                 cin >> longitude;
                 double radius;
-                cout << "Introduce the maximum radius:" << endl;
+                cout << " ----- * Maximum_radius * ------"<< endl
+                     << "| Introduce the maximum radius: |"<< endl
+                     << " -------------------------------" << endl;
                 cin >> radius;
                 string airport_target;
-                cout << "Introduce the target airport code:" << endl;
+                cout << " ---------- Target_AIRPORT_CODE ------------"<< endl
+                     << "| Introduce the code of the target airport: |"<< endl
+                     << " -------------------------------------------" << endl;
                 cin >> airport_target;
                 bestCoordinateAirport(reference, airports, airport_target, latitude, longitude, radius, flights_vector);
             }
             else if (input2 == "2" && input3 == "1") {
                 Graph<Airport>* reference = &flights;
                 double latitude;
-                cout << "Introduce the source latitude:" << endl;
+                cout << " ----- * Source_LATITUDE * ------"<< endl
+                     << "| Introduce the source latitude: |"<< endl
+                     << " --------------------------------" << endl;
                 cin >> latitude;
                 double longitude;
-                cout << "Introduce the source longitude:" << endl;
+                cout << " ----- * Source_LONGITUDE * ------"<< endl
+                     << "| Introduce the source longitude: |"<< endl
+                     << " ---------------------------------" << endl;
                 cin >> longitude;
                 double radius;
-                cout << "Introduce the maximum radius:" << endl;
+                cout << " ----- * Maximum_radius * ------"<< endl
+                     << "| Introduce the maximum radius: |"<< endl
+                     << " -------------------------------" << endl;
                 cin >> radius;
                 string city_target;
-                cout << "Introduce the target city:" << endl;
+                cout << " ------- Target_CITY --------"<< endl
+                     << "| Introduce the target city: |"<< endl
+                     << " ----------------------------" << endl;
                 cin >> city_target;
                 bestCoordinateCity(reference, airports, city_target, latitude, longitude, radius, flights_vector);
             }
             else if (input2 == "2" && input3 == "2") {
                 Graph<Airport>* reference = &flights;
                 double latitude_source;
-                cout << "Introduce the source latitude:" << endl;
+                cout << " ----- * Source_LATITUDE * ------"<< endl
+                     << "| Introduce the source latitude: |"<< endl
+                     << " --------------------------------" << endl;
                 cin >> latitude_source;
                 double longitude_source;
                 cout << "Introduce the source longitude:" << endl;
@@ -374,7 +456,9 @@ void run() {
             if (input2 == "2" && input3 == "0") {
                 Graph<Airport>* reference = &g;
                 double latitude;
-                cout << "Introduce the source latitude:" << endl;
+                cout << " ----- * Source_LATITUDE * ------"<< endl
+                     << "| Introduce the source latitude: |"<< endl
+                     << " --------------------------------" << endl;
                 cin >> latitude;
                 double longitude;
                 cout << "Introduce the source longitude:" << endl;
@@ -390,7 +474,9 @@ void run() {
             else if (input2 == "2" && input3 == "1") {
                 Graph<Airport>* reference = &g;
                 double latitude;
-                cout << "Introduce the source latitude:" << endl;
+                cout << " ----- * Source_LATITUDE * ------"<< endl
+                     << "| Introduce the source latitude: |"<< endl
+                     << " --------------------------------" << endl;
                 cin >> latitude;
                 double longitude;
                 cout << "Introduce the source longitude:" << endl;
@@ -406,7 +492,9 @@ void run() {
             else if (input2 == "2" && input3 == "2") {
                 Graph<Airport>* reference = &g;
                 double latitude_source;
-                cout << "Introduce the source latitude:" << endl;
+                cout << " ----- * Source_LATITUDE * ------"<< endl
+                     << "| Introduce the source latitude: |"<< endl
+                     << " --------------------------------" << endl;
                 cin >> latitude_source;
                 double longitude_source;
                 cout << "Introduce the source longitude:" << endl;
