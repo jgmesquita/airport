@@ -11,7 +11,12 @@
 #include "Graph.h"
 
 using namespace std;
-
+/**
+ * @brief Calculate the distance between two airports using Haversine Formula.
+ * @param a1 Airport 1.
+ * @param a2 Airport 2.
+ * @return Distance between the two airports.
+ */
 double haversineAirport(Airport a1, Airport a2) {
     double dLat = (stod(a2.getLatitude()) - stod(a1.getLatitude())) * M_PI / 180.0;
     double dLon = (stod(a2.getLongitude()) - stod(a1.getLongitude())) * M_PI / 180.0;
@@ -24,7 +29,10 @@ double haversineAirport(Airport a1, Airport a2) {
     double c = 2 * asin(sqrt(a));
     return rad * c;
 }
-
+/**
+ * @brief Load the data from "airports.csv".
+ * @return Graph from the data read.
+ */
 Graph<Airport> loadAirportsGraph() {
     Graph<Airport> flights;
     ifstream inputFile("airports.csv");
@@ -52,7 +60,12 @@ Graph<Airport> loadAirportsGraph() {
     }
     return flights;
 }
-
+/**
+ * @brief Load the data from "airports.csv".
+ * @param cities
+ * @param countries
+ * @return Updates the Cities and Countries set and returns a vector with all airports from the data.
+ */
 vector<Airport> loadAirportsVector(set<string>& cities, set<string>& countries) {
     vector<Airport> airports;
     ifstream inputFile("airports.csv");
@@ -82,7 +95,10 @@ vector<Airport> loadAirportsVector(set<string>& cities, set<string>& countries) 
     }
     return airports;
 }
-
+/**
+ * @brief Reads the data from "airlines.csv".
+ * @return Vector with all the airlines from the data.
+ */
 vector<Airline> loadAirlines() {
     vector<Airline> airlines;
     ifstream inputFile("airlines.csv");
@@ -108,7 +124,10 @@ vector<Airline> loadAirlines() {
     }
     return airlines;
 }
-
+/**
+ * @brief Load the data from "flights.csv".
+ * @return Returns a vector with all the flights from the data.
+ */
 vector<Flight> loadFlightsVector() {
     ifstream inputFile("flights.csv");
     vector<Flight> flights_vector;
@@ -133,7 +152,12 @@ vector<Flight> loadFlightsVector() {
     }
     return flights_vector;
 }
-
+/**
+ * @brief Add all edges to all nodes in the graph of the airports from the data of "flights.csv".
+ * @param flights Vector with all flights.
+ * @param airports Vector with all airports.
+ * @param airlines Vector with all airlines.
+ */
 void loadFlights(Graph<Airport>& flights, vector<Airport>& airports, vector<Airline> airlines) {
     ifstream inputFile("flights.csv");
     string line;
@@ -177,10 +201,17 @@ void loadFlights(Graph<Airport>& flights, vector<Airport>& airports, vector<Airl
         flights.addEdge(x, y, haversineAirport(x, y), n);
     }
 }
-
+/**
+ * @brief Number of airports.
+ * @param flights Graph with all airports.
+ */
 void numberAirport(Graph<Airport>& flights) {
     cout << "The number of airports is: " << flights.getVertexSet().size() << endl;
 }
+/**
+ * @brief Number of flights.
+ * @param flights Graph with all airports.
+ */
 void numberFlights(Graph<Airport>& flights) {
     unsigned count = 0;
     auto v = flights.getVertexSet();
@@ -189,19 +220,34 @@ void numberFlights(Graph<Airport>& flights) {
     }
     cout << "The number of flights is: " << count << endl;
 }
-
+/**
+ * @brief Number of airlines
+ * @param airlines Vector with all airlines.
+ */
 void numberAirlines(vector<Airline>& airlines) {
     cout << "The number of airlines is: " << airlines.size() << endl;
 }
-
+/**
+ * @brief Number of countries.
+ * @param countries Set with all countries.
+ */
 void numberCountries(set<string>& countries) {
     cout << "The number of countries is: " << countries.size() << endl;
 }
-
+/**
+ * @brief Number of cities.
+ * @param cities Set with all cities.
+ */
 void numberCities(set<string>& cities) {
     cout << "The number of cities is: " << cities.size() << endl;
 }
-
+/**
+ * @brief Number of flights from an airport.
+ * @param airports Vector with all airports.
+ * @param airlines Vector with all airlines.
+ * @param flights Graph with all airports-
+ * @param airport_code String with the airport code.
+ */
 void numberFlightsFromAirport(vector<Airport>& airports, vector<Airline>& airlines, Graph<Airport>& flights, string airport_code) {
     set<unsigned> airlines_set;
     Airport airport;
@@ -228,7 +274,11 @@ void numberFlightsFromAirport(vector<Airport>& airports, vector<Airline>& airlin
     }
     cout << "\nThe total of flights is " << global << " and the total of airlines is " << airlines_set.size() << "!" << endl;
 }
-
+/**
+ * @brief Number of flights of a city.
+ * @param city City name.
+ * @param flights Graph with all airports.
+ */
 void numberFlightsCity(string& city, Graph<Airport>& flights) {
     unsigned global = 0;
     auto vertexSet = flights.getVertexSet();
@@ -239,7 +289,12 @@ void numberFlightsCity(string& city, Graph<Airport>& flights) {
     }
     cout << "The following city has " << global << " flights" << endl;
 }
-
+/**
+ * @brief Number of flights of a airline.
+ * @param airline_code Airline code.
+ * @param airlines Vector with all the airlines.
+ * @param flights Graph with all the airports.
+ */
 void numberFlightsAirline(string& airline_code, vector<Airline>& airlines, Graph<Airport>& flights) {
     unsigned global = 0;
     unsigned count = 0;
@@ -266,7 +321,12 @@ void numberFlightsAirline(string& airline_code, vector<Airline>& airlines, Graph
     }
     cout << "The following airline has " << global << " flights!" << endl;
 }
-
+/**
+ * @brief Number of airports that can be reached directly from an airport.
+ * @param airport_code Airport code.
+ * @param airports Vector with all airports.
+ * @param flights Graph with all airports.
+ */
 void numberAirportsFromAirport(string& airport_code, vector<Airport>& airports, Graph<Airport>& flights) {
     set<Airport> counter;
     Airport airport;
@@ -292,7 +352,12 @@ void numberAirportsFromAirport(string& airport_code, vector<Airport>& airports, 
     }
     cout << "The following airport has " << counter.size() << " airports has a destination!" << endl;
 }
-
+/**
+ * @brief Number of cities that can be reached directly from an airport.
+ * @param airport_code Airport code.
+ * @param airports Vector with all the airports.
+ * @param flights Graph with all the airports.
+ */
 void numberCitiesFromAirport(string& airport_code, vector<Airport>& airports, Graph<Airport>& flights) {
     set<string> cities;
     Airport airport;
@@ -322,7 +387,12 @@ void numberCitiesFromAirport(string& airport_code, vector<Airport>& airports, Gr
     }
     cout << "The following airport has " << cities.size() << " cities has a destination!" << endl;
 }
-
+/**
+ * @brief Number of countries that can be reached directly from an airport.
+ * @param airport_code Airport code.
+ * @param airports Vector with all airports.
+ * @param flights Graph with all airports.
+ */
 void numberCountriesFromAirport(string& airport_code, vector<Airport>& airports, Graph<Airport>& flights) {
     set<string> countries;
     Airport airport;
@@ -352,7 +422,11 @@ void numberCountriesFromAirport(string& airport_code, vector<Airport>& airports,
     }
     cout << "The following airport has " << countries.size() << " countries has a destination!" << endl;
 }
-
+/**
+ * @brief Number of countries that can be reached directly from a city.
+ * @param city City name.
+ * @param flights Graph with all airports.
+ */
 void numberCountriesFromCity(string& city, Graph<Airport>& flights) {
     set<string> countries;
     auto vertexSet = flights.getVertexSet();
@@ -365,7 +439,13 @@ void numberCountriesFromCity(string& city, Graph<Airport>& flights) {
     }
     cout << "The following city has " << countries.size() << " countries has a destination!" << endl;
 }
-
+/**
+ * @brief Number of airports that can be reached within x stops from an airport.
+ * @param airport_code Airport code.
+ * @param k Number of stops.
+ * @param airports Vector with all the airports.
+ * @param flights Graph with all the airports.
+ */
 void numberAirportsFromXstops(string& airport_code, int k, vector<Airport>& airports, Graph<Airport>* flights) {
     set<pair<Airport,int>> reachable;
     queue<Vertex<Airport>*> temp;
@@ -412,7 +492,13 @@ void numberAirportsFromXstops(string& airport_code, int k, vector<Airport>& airp
         }
     }
 }
-
+/**
+ * @brief Number of cities that can be reached within x stops from an airport.
+ * @param airport_code Airport code.
+ * @param k Number of stops.
+ * @param airports Vector with all the airports.
+ * @param flights Graph with all the airports.
+ */
 void numberCitiesFromXstops(string& airport_code, int k, vector<Airport>& airports, Graph<Airport>* flights) {
     set<pair<Airport,int>> reachable;
     queue<Vertex<Airport>*> temp;
@@ -459,7 +545,13 @@ void numberCitiesFromXstops(string& airport_code, int k, vector<Airport>& airpor
         }
     }
 }
-
+/**
+ * @brief Number of countries that can be reached within x stops from an airport.
+ * @param airport_code Airport code.
+ * @param k Number of stops.
+ * @param airports Vector with all the airports.
+ * @param flights Graph with all the airports.
+ */
 void numberCountriesFromXstops(string& airport_code, int k, vector<Airport>& airports, Graph<Airport>* flights) {
     set<pair<Airport,int>> reachable;
     queue<Vertex<Airport>*> temp;
@@ -508,11 +600,21 @@ void numberCountriesFromXstops(string& airport_code, int k, vector<Airport>& air
 }
 
 
-
+/**
+ * @Brief Function to compare two airports by the number of flights.
+ * @param p1 First airport.
+ * @param p2 Second airport.
+ * @return Boolean value result.
+ */
 bool compare(pair<Airport, unsigned> p1, pair<Airport, unsigned> p2) {
     return p1.second > p2.second;
 }
-
+/**
+ * @brief Number of flights that departure from an airport.
+ * @param flights
+ * @param k
+ * @return Map container with the pair of an airport and its flights
+ */
 map<Airport,unsigned> maximumPartida(Graph<Airport>& flights, int k) {
     map<Airport,unsigned> traffic;
     for (auto w : flights.getVertexSet()) {
@@ -530,7 +632,12 @@ map<Airport,unsigned> maximumPartida(Graph<Airport>& flights, int k) {
     cout << endl;
     return traffic;
 }
-
+/**
+ * @brief Number of flights reach to an airport.
+ * @param flights
+ * @param k
+ * @return Map container with the pair of an airport and its flights
+ */
 map<Airport,unsigned> maximumChegada(Graph<Airport>& flights, int k) {
     map<Airport,unsigned> traffic;
     for (auto w : flights.getVertexSet()) {
@@ -557,7 +664,11 @@ map<Airport,unsigned> maximumChegada(Graph<Airport>& flights, int k) {
     return traffic;
 }
 
-
+/**
+ * @brief Number of flights a airport.
+ * @param flights
+ * @param k
+ */
 void maximumTraffic(Graph<Airport>& flights, int k) {
     map<Airport, unsigned> traffic1 = maximumChegada(flights, k);
     map<Airport, unsigned> traffic2 = maximumPartida(flights, k);
@@ -578,7 +689,14 @@ void maximumTraffic(Graph<Airport>& flights, int k) {
         cout << "-> " << temp[i].first.getName() << " [" << temp[i].first.getCode() << "] with the traffic of " << temp[i].second << " flights!" << endl;
     }
 }
-
+/**
+ * Auxiliar function to calculate the articulation points.
+ * @param g Graph.
+ * @param v Vertex being visited.
+ * @param s Stack with airports.
+ * @param l Unordered set of airports.
+ * @param i Distance being visited.
+ */
 void dfs_art(Graph<Airport> *g, Vertex<Airport> *v, stack<Airport> &s, unordered_set<Airport, HashAirport, HashAirport> &l, int &i){
     v->setVisited(true);
     v->setLow(i);
@@ -609,7 +727,11 @@ void dfs_art(Graph<Airport> *g, Vertex<Airport> *v, stack<Airport> &s, unordered
     v->setProcessing(false);
     s.pop();
 }
-
+/**
+ * @brief Calculate the articulation points.
+ * @param g Graph with all airports
+ * @return Unordered set containing all the airports essential for the network.
+ */
 unordered_set<Airport, HashAirport, HashAirport> articulationPoints(Graph<Airport> *g) {
     unordered_set<Airport, HashAirport, HashAirport> res;
     stack<Airport> s;
@@ -624,7 +746,11 @@ unordered_set<Airport, HashAirport, HashAirport> articulationPoints(Graph<Airpor
     }
     return res;
 }
-
+/**
+ * @brief Function to convert a vector to a more readable data for the user.
+ * @param airports Vector with all airports.
+ * @param flights_vector Vector with all flights.
+ */
 void interfacePath(vector<Airport> airports, vector<Flight> flights_vector) {
     for (unsigned i = 0; i < airports.size() - 1; i++) {
         set<string> airlines;
@@ -639,7 +765,14 @@ void interfacePath(vector<Airport> airports, vector<Flight> flights_vector) {
         }
     }
 }
-
+/**
+ * @brief Calculate the best path between two airports.
+ * @param flights Graph with all the airports.
+ * @param airports Vector with all the airports.
+ * @param airport_code1 Airport code 1.
+ * @param airport_code2 Airport code 2.
+ * @param flights_vector Vector with all the flights.
+ */
 void bestAirportAirport(Graph<Airport>* flights, vector<Airport>& airports, string airport_code1, string airport_code2, vector<Flight> flights_vector) {
     Airport airport1;
     auto it = airports.begin();
@@ -668,7 +801,14 @@ void bestAirportAirport(Graph<Airport>* flights, vector<Airport>& airports, stri
     auto v = flights->dijkstra(airport1, airport2);
     interfacePath(v, flights_vector);
 }
-
+/**
+ * @brief Calculate the best path between two airports.
+ * @param flights Graph with all the airports.
+ * @param airports Vector with all the airports.
+ * @param airport_code Airport code.
+ * @param city Name of the city.
+ * @param flights_vector Vector with all the flights.
+ */
 void bestAirportCity(Graph<Airport>* flights, string city, string airport_code, vector<Airport> airports, vector<Flight> flights_vector) {
     Airport airport1;
     auto it = airports.begin();
@@ -703,7 +843,13 @@ void bestAirportCity(Graph<Airport>* flights, string city, string airport_code, 
     auto v = flights->dijkstra(airport1, airport2);
     interfacePath(v, flights_vector);
 }
-
+/**
+ * @brief Alternative function to calculate the distance of an airport to a location.
+ * @param a1 Airport.
+ * @param latitude Latitude.
+ * @param longitude Longitude.
+ * @return Distance of an airport to a location.
+ */
 double haversineAirportCoordinate(Airport a1, double latitude, double longitude) {
     double dLat = (latitude - stod(a1.getLatitude())) * M_PI / 180.0;
     double dLon = (longitude - stod(a1.getLongitude())) * M_PI / 180.0;
@@ -716,7 +862,16 @@ double haversineAirportCoordinate(Airport a1, double latitude, double longitude)
     double c = 2 * asin(sqrt(a));
     return rad * c;
 }
-
+/**
+ * @brief Calculate the best path between two airports.
+ * @param flights Graph with all the airports.
+ * @param airports Vector with all the airports.
+ * @param airport_code Airport code.
+ * @param latitude Latitude.
+ * @param longitude Longitude.
+ * @param radius Radius.
+ * @param flights_vector Vector with all the flights
+ */
 void bestAirportCoordinate(Graph<Airport>* flights, vector<Airport> airports, string airport_code, double latitude, double longitude, double radius, vector<Flight> flights_vector) {
     Airport airport1;
     auto it = airports.begin();
@@ -751,7 +906,14 @@ void bestAirportCoordinate(Graph<Airport>* flights, vector<Airport> airports, st
     auto v = flights->dijkstra(airport1, airport2);
     interfacePath(v, flights_vector);
 }
-
+/**
+ * @brief Calculate the best path between two airports.
+ * @param flights Graph with all the airports.
+ * @param airports Vector with all the airports.
+ * @param airport_code Airport code.
+ * @param city Name of the city.
+ * @param flights_vector Vector with all the flights.
+ */
 void bestCityAirport(Graph<Airport>* flights, string city, string airport_code, vector<Airport> airports, vector<Flight> flights_vector) {
     Airport airport2;
     auto it = airports.begin();
@@ -786,7 +948,14 @@ void bestCityAirport(Graph<Airport>* flights, string city, string airport_code, 
     auto v = flights->dijkstra(airport1, airport2);
     interfacePath(v, flights_vector);
 }
-
+/**
+ * @brief Calculate the best path between two airports.
+ * @param flights Graph with all the airports.
+ * @param airports Vector with all the airports.
+ * @param city1 Name of the city 1.
+ * @param city2 Name of the city 2.
+ * @param flights_vector Vector with all the flights.
+ */
 void bestCityCity(Graph<Airport>* flights, string city1, string city2, vector<Airport> airports, vector<Flight> flights_vector) {
     vector<Airport> temp1;
     for (Airport a : airports) {
@@ -828,7 +997,16 @@ void bestCityCity(Graph<Airport>* flights, string city1, string city2, vector<Ai
     auto v = flights->dijkstra(airport1, airport2);
     interfacePath(v, flights_vector);
 }
-
+/**
+ * @brief Calculate the best path between two airports.
+ * @param flights Graph with all the airports.
+ * @param airports Vector with all the airports.
+ * @param city Name of the city.
+ * @param latitude Latitude.
+ * @param longitude Longitude.
+ * @param radius Radius.
+ * @param flights_vector Vector with all the flights
+ */
 void bestCityCoordinate(Graph<Airport>* flights, vector<Airport> airports, string city, double latitude, double longitude, double radius, vector<Flight> flights_vector) {
     vector<Airport> temp1;
     for (Airport a : airports) {
@@ -870,7 +1048,16 @@ void bestCityCoordinate(Graph<Airport>* flights, vector<Airport> airports, strin
     auto v = flights->dijkstra(airport1, airport2);
     interfacePath(v, flights_vector);
 }
-
+/**
+ * @brief Calculate the best path between two airports.
+ * @param flights Graph with all the airports.
+ * @param airports Vector with all the airports.
+ * @param airport_code Airport code.
+ * @param latitude Latitude.
+ * @param longitude Longitude.
+ * @param radius Radius.
+ * @param flights_vector Vector with all the flights
+ */
 void bestCoordinateAirport(Graph<Airport>* flights, vector<Airport> airports, string airport_code, double latitude, double longitude, double radius, vector<Flight> flights_vector) {
     vector<Airport> temp;
     for (Airport a : airports) {
@@ -906,7 +1093,16 @@ void bestCoordinateAirport(Graph<Airport>* flights, vector<Airport> airports, st
     auto v = flights->dijkstra(airport1, airport2);
     interfacePath(v, flights_vector);
 }
-
+/**
+ * @brief Calculate the best path between two airports.
+ * @param flights Graph with all the airports.
+ * @param airports Vector with all the airports.
+ * @param city Name of the city.
+ * @param latitude Latitude.
+ * @param longitude Longitude.
+ * @param radius Radius.
+ * @param flights_vector Vector with all the flights
+ */
 void bestCoordinateCity(Graph<Airport>* flights, vector<Airport> airports, string city, double latitude, double longitude, double radius, vector<Flight> flights_vector) {
     vector<Airport> temp1;
     for (Airport a : airports) {
@@ -948,7 +1144,18 @@ void bestCoordinateCity(Graph<Airport>* flights, vector<Airport> airports, strin
     auto v = flights->dijkstra(airport1, airport2);
     interfacePath(v, flights_vector);
 }
-
+/**
+ * @brief Calculate the best path between two airports.
+ * @param flights Graph with all the airports.
+ * @param airports Vector with all the airports.
+ * @param latitude_source Source latitude.
+ * @param longitude_source Source longitude.
+ * @param radius_source Source radius.
+ * @param latitude_target Target latitude.
+ * @param longitude_target Target longitude.
+ * @param radius_target Target radius.
+ * @param flights_vector Vector with all the flights.
+ */
 void bestCoordinateCoordinate(Graph<Airport>* flights, vector<Airport> airports, double latitude_source, double longitude_source, double radius_source, double latitude_target, double longitude_target, double radius_target, vector<Flight> flights_vector) {
     vector<Airport> temp1;
     for (Airport a : airports) {
@@ -990,7 +1197,12 @@ void bestCoordinateCoordinate(Graph<Airport>* flights, vector<Airport> airports,
     auto v = flights->dijkstra(airport1, airport2);
     interfacePath(v, flights_vector);
 }
-
+/**
+ * @brief Auxiliary function for the Floyd Warshall algorithm.
+ * @param source Source node.
+ * @param target Target node.
+ * @return Boolean value.
+ */
 bool findEdge(Vertex<Airport>* source, Vertex<Airport>* target) {
     for (auto& e : source->getAdj()) {
         auto w = e.getDest();
@@ -1000,7 +1212,10 @@ bool findEdge(Vertex<Airport>* source, Vertex<Airport>* target) {
     }
     return false;
 }
-
+/**
+ * @brief Calculate the diameter of the graph with all the airports.
+ * @param g Graph with all the airports.
+ */
 void FloydWarshallDiameter(Graph<Airport>* g) {
     int n = g->getNumVertex();
     auto vset = g->getVertexSet();
@@ -1046,7 +1261,12 @@ void FloydWarshallDiameter(Graph<Airport>* g) {
     // Print or use the diameter as needed
     cout << "Diameter of the graph: " << diameter << endl;
 }
-
+/**
+ * @brief Function to create a custom graph with the preferences of the user.
+ * @param airports Vector with all the airports.
+ * @param flights_vector Vector with all the flights.
+ * @return Graph with the preferences of the user.
+ */
 Graph<Airport> createCustomGraph(vector<Airport> airports, vector<Flight> flights_vector) {
     Graph<Airport> g;
     string airport_code;
@@ -1123,7 +1343,9 @@ Graph<Airport> createCustomGraph(vector<Airport> airports, vector<Flight> flight
     }
     return g;
 }
-
+/**
+ * @brief Interface of the menu.
+ */
 void menu() {
     cout << "###################################################################################################" << endl;
     cout << "Choose one of the following options:" << endl;
