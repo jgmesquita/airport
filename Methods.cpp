@@ -513,10 +513,9 @@ bool compare(pair<Airport, unsigned> p1, pair<Airport, unsigned> p2) {
     return p1.second > p2.second;
 }
 
-void maximumTraffic(Graph<Airport>& flights, int k) {
-    map<Airport, unsigned> traffic;
-    auto vertexSet = flights.getVertexSet();
-    for (auto w : vertexSet) {
+map<Airport,unsigned> maximumPartida(Graph<Airport>& flights, int k) {
+    map<Airport,unsigned> traffic;
+    for (auto w : flights.getVertexSet()) {
         traffic.insert({w->getInfo(),w->getAdj().size()});
     }
     vector<pair<Airport, unsigned>> temp;
@@ -524,7 +523,57 @@ void maximumTraffic(Graph<Airport>& flights, int k) {
         temp.push_back(it);
     }
     sort(temp.begin(), temp.end(), compare);
-    cout << "The following list contains the airports the most traffic: " << endl;
+    cout << "The following list contains the airports with the most departure traffic: " << endl;
+    for (int i = 0; i < k; i++) {
+        cout << "-> " << temp[i].first.getName() << " [" << temp[i].first.getCode() << "] with the traffic of " << temp[i].second << " flights!" << endl;
+    }
+    cout << endl;
+    return traffic;
+}
+
+map<Airport,unsigned> maximumChegada(Graph<Airport>& flights, int k) {
+    map<Airport,unsigned> traffic;
+    for (auto w : flights.getVertexSet()) {
+        unsigned count = 0;
+        for (auto v : flights.getVertexSet()) {
+            for (auto& e : v->getAdj()) {
+                if (w->getInfo() == e.getDest()->getInfo()) {
+                    count++;
+                }
+            }
+        }
+        traffic.insert({w->getInfo(), count});
+    }
+    vector<pair<Airport, unsigned>> temp;
+    for (auto it : traffic) {
+        temp.push_back(it);
+    }
+    sort(temp.begin(), temp.end(), compare);
+    cout << "The following list contains the airports with the most coming traffic: " << endl;
+    for (int i = 0; i < k; i++) {
+        cout << "-> " << temp[i].first.getName() << " [" << temp[i].first.getCode() << "] with the traffic of " << temp[i].second << " flights!" << endl;
+    }
+    cout << endl;
+    return traffic;
+}
+
+
+void maximumTraffic(Graph<Airport>& flights, int k) {
+    map<Airport, unsigned> traffic1 = maximumChegada(flights, k);
+    map<Airport, unsigned> traffic2 = maximumPartida(flights, k);
+    map<Airport, unsigned> traffic;
+    for (auto it : traffic1) {
+        traffic.insert(it);
+    }
+    for (auto it : traffic2) {
+        traffic[it.first] += it.second;
+    }
+    vector<pair<Airport, unsigned>> temp;
+    for (auto it : traffic) {
+        temp.push_back(it);
+    }
+    sort(temp.begin(), temp.end(), compare);
+    cout << "The following list contains the airports with the most traffic in general: " << endl;
     for (int i = 0; i < k; i++) {
         cout << "-> " << temp[i].first.getName() << " [" << temp[i].first.getCode() << "] with the traffic of " << temp[i].second << " flights!" << endl;
     }

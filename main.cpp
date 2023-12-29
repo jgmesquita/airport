@@ -2,7 +2,9 @@
 #include "Methods.cpp"
 
 using namespace std;
-
+/**
+ * @brief Run function for the program to work interactively with the user.
+ */
 void run() {
     vector<Airline> airlines;
     vector<Airport> airports;
