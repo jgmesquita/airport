@@ -1,0 +1,191 @@
+\doxysection{Edge\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_edge}{}\label{class_edge}\index{Edge$<$ T $>$@{Edge$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_edge_a79b7ae13e6d456ac5bb5cd7c183f658b}{Edge}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*}d, double w, unsigned airline)
+\begin{DoxyCompactList}\small\item\em Constructor for the \doxylink{class_edge}{Edge} of a node. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_edge_a9a2de066dff8513dd788d553fc1d0c81}{get\+Dest}} () const
+\begin{DoxyCompactList}\small\item\em Get the destination node. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_a163ee9f75e35701e6a04ea1c987e4094}{set\+Dest}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*}dest)
+\begin{DoxyCompactList}\small\item\em Set the destination node. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{class_edge_a3df378e283d6c8be5be4170ac8d7f4e8}{get\+Weight}} () const
+\begin{DoxyCompactList}\small\item\em Get the weight of the connection between two nodes. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{class_edge_aff600b093dd6917feeeb35bb7947bdd4}{set\+Weight}} (double weight)
+\begin{DoxyCompactList}\small\item\em Set the weight of the connection between two nodes. \end{DoxyCompactList}\item 
+unsigned \mbox{\hyperlink{class_edge_a1097456d76954d75ddc18a90e5d2b410}{get\+Airline}} () const
+\begin{DoxyCompactList}\small\item\em Get the unsigned value of the position of the airline in the vector. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsubsection*{Friends}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{class_edge_aefa9b76cd57411c5354e5620dc2d84dd}{Graph$<$ T $>$}}
+\item 
+class \mbox{\hyperlink{class_edge_a2e120a12dec663fa334633b4f26cbed8}{Vertex$<$ T $>$}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Edge$<$ T $>$}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00066}{66}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{class_edge_a79b7ae13e6d456ac5bb5cd7c183f658b}\label{class_edge_a79b7ae13e6d456ac5bb5cd7c183f658b} 
+\index{Edge$<$ T $>$@{Edge$<$ T $>$}!Edge@{Edge}}
+\index{Edge@{Edge}!Edge$<$ T $>$@{Edge$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Edge()}{Edge()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_edge}{Edge}}$<$ T $>$\mbox{\hyperlink{class_edge}{\+::\+Edge}} (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*}}]{d,  }\item[{double}]{w,  }\item[{unsigned}]{airline }\end{DoxyParamCaption})}
+
+
+
+Constructor for the \doxylink{class_edge}{Edge} of a node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Destination node. \\
+\hline
+{\em w} & Weight of the connection. \\
+\hline
+{\em airline} & Unsigned value of the position of the airline in the vector. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00174}{174}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_edge_a1097456d76954d75ddc18a90e5d2b410}\label{class_edge_a1097456d76954d75ddc18a90e5d2b410} 
+\index{Edge$<$ T $>$@{Edge$<$ T $>$}!getAirline@{getAirline}}
+\index{getAirline@{getAirline}!Edge$<$ T $>$@{Edge$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getAirline()}{getAirline()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+unsigned \mbox{\hyperlink{class_edge}{Edge}}$<$ T $>$\+::get\+Airline (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the unsigned value of the position of the airline in the vector. 
+
+\begin{DoxyReturn}{Returns}
+Unsigned value of the position of the airline in the vector. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00252}{252}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_edge_a9a2de066dff8513dd788d553fc1d0c81}\label{class_edge_a9a2de066dff8513dd788d553fc1d0c81} 
+\index{Edge$<$ T $>$@{Edge$<$ T $>$}!getDest@{getDest}}
+\index{getDest@{getDest}!Edge$<$ T $>$@{Edge$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getDest()}{getDest()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_edge}{Edge}}$<$ T $>$\+::get\+Dest (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the destination node. 
+
+\begin{DoxyReturn}{Returns}
+Destination node. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00228}{228}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_edge_a3df378e283d6c8be5be4170ac8d7f4e8}\label{class_edge_a3df378e283d6c8be5be4170ac8d7f4e8} 
+\index{Edge$<$ T $>$@{Edge$<$ T $>$}!getWeight@{getWeight}}
+\index{getWeight@{getWeight}!Edge$<$ T $>$@{Edge$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getWeight()}{getWeight()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+double \mbox{\hyperlink{class_edge}{Edge}}$<$ T $>$\+::get\+Weight (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the weight of the connection between two nodes. 
+
+\begin{DoxyReturn}{Returns}
+Weight of the connection between two nodes. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00244}{244}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_edge_a163ee9f75e35701e6a04ea1c987e4094}\label{class_edge_a163ee9f75e35701e6a04ea1c987e4094} 
+\index{Edge$<$ T $>$@{Edge$<$ T $>$}!setDest@{setDest}}
+\index{setDest@{setDest}!Edge$<$ T $>$@{Edge$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setDest()}{setDest()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_edge}{Edge}}$<$ T $>$\+::set\+Dest (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*}}]{d }\end{DoxyParamCaption})}
+
+
+
+Set the destination node. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em d} & Destination node. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00236}{236}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_edge_aff600b093dd6917feeeb35bb7947bdd4}\label{class_edge_aff600b093dd6917feeeb35bb7947bdd4} 
+\index{Edge$<$ T $>$@{Edge$<$ T $>$}!setWeight@{setWeight}}
+\index{setWeight@{setWeight}!Edge$<$ T $>$@{Edge$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{setWeight()}{setWeight()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{class_edge}{Edge}}$<$ T $>$\+::set\+Weight (\begin{DoxyParamCaption}\item[{double}]{weight }\end{DoxyParamCaption})}
+
+
+
+Set the weight of the connection between two nodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em weight} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00260}{260}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+
+
+\doxysubsection{Friends And Related Symbol Documentation}
+\Hypertarget{class_edge_aefa9b76cd57411c5354e5620dc2d84dd}\label{class_edge_aefa9b76cd57411c5354e5620dc2d84dd} 
+\index{Edge$<$ T $>$@{Edge$<$ T $>$}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!Edge$<$ T $>$@{Edge$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Graph$<$ T $>$}{Graph< T >}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+friend class \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00076}{76}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_edge_a2e120a12dec663fa334633b4f26cbed8}\label{class_edge_a2e120a12dec663fa334633b4f26cbed8} 
+\index{Edge$<$ T $>$@{Edge$<$ T $>$}!Vertex$<$ T $>$@{Vertex$<$ T $>$}}
+\index{Vertex$<$ T $>$@{Vertex$<$ T $>$}!Edge$<$ T $>$@{Edge$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{Vertex$<$ T $>$}{Vertex< T >}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+friend class \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$\hspace{0.3cm}{\ttfamily [friend]}}
+
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00076}{76}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\end{DoxyCompactItemize}

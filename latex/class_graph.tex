@@ -1,0 +1,336 @@
+\doxysection{Graph\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_graph}{}\label{class_graph}\index{Graph$<$ T $>$@{Graph$<$ T $>$}}
+
+
+{\ttfamily \#include $<$Graph.\+h$>$}
+
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_graph_a8b7b7465fbfd562e2a469f90a437ab75}{find\+Vertex}} (const T \&in) const
+\begin{DoxyCompactList}\small\item\em Auxiliary function to find a \doxylink{class_vertex}{Vertex} with a given content. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{class_graph_a0853eac15cdf0f06d63f4b8a7820ec71}{get\+Num\+Vertex}} () const
+\begin{DoxyCompactList}\small\item\em Get the vector size of all nodes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a00be284ea2be3b3d0f0d2e493b70245b}{add\+Vertex}} (const T \&in)
+\begin{DoxyCompactList}\small\item\em Adds a vertex with a given content or info (in) to a graph (this). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_af9c903104ad69a7782979fa9caedf163}{remove\+Vertex}} (const T \&in)
+\begin{DoxyCompactList}\small\item\em Removes a vertex with a given content (in) from a graph (this), and all outgoing and incoming edges. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_aad65bd37e161d60bce1db24825e5a632}{add\+Edge}} (const T \&sourc, const T \&dest, double w, unsigned airline)
+\begin{DoxyCompactList}\small\item\em Adds an edge to a graph (this), given the contents of the source and destination vertices and the edge weight (w). \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a1106092a37366486cf55576f9ec01692}{remove\+Edge}} (const T \&sourc, const T \&dest)
+\begin{DoxyCompactList}\small\item\em Removes an edge from a graph (this). The edge is identified by the source (sourc) and destination (dest) contents. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_graph_a923b43995f81ad9319bbc81a1e433e64}{get\+Vertex\+Set}} () const
+\begin{DoxyCompactList}\small\item\em Get the vector with all nodes. \end{DoxyCompactList}\item 
+vector$<$ T $>$ \mbox{\hyperlink{class_graph_a911798b1a89f8c4ae90ba3eee849cff8}{dfs}} () const
+\begin{DoxyCompactList}\small\item\em Performs a depth-\/first search (dfs) traversal in a graph (this). \end{DoxyCompactList}\item 
+vector$<$ T $>$ \mbox{\hyperlink{class_graph_a510522c8221b321a82e687fe2f2cb484}{dfs}} (const T \&source) const
+\begin{DoxyCompactList}\small\item\em Performs a depth-\/first search (dfs) in a graph (this). \end{DoxyCompactList}\item 
+vector$<$ T $>$ \mbox{\hyperlink{class_graph_aa47a4130165550e208e7a063fce6983a}{bfs}} (const T \&source) const
+\begin{DoxyCompactList}\small\item\em Performs a breadth-\/first search (bfs) in a graph (this), starting from the vertex with the given source contents (source). \end{DoxyCompactList}\item 
+vector$<$ T $>$ \mbox{\hyperlink{class_graph_af1d4affd1f886bf598d0f4cf4a0cb7cb}{topsort}} () const
+\begin{DoxyCompactList}\small\item\em Performs a topological sorting of the vertices of a graph (this). Returns a vector with the contents of the vertices by topological order. If the graph has cycles, returns an empty vector. Follows the algorithm described in theoretical classes. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{class_graph_a1ea1512afe5ab878301bc806c2eba9d2}{is\+DAG}} () const
+\begin{DoxyCompactList}\small\item\em Performs a depth-\/first search in a graph (this), to determine if the graph is acyclic (acyclic directed graph or DAG). During the search, a cycle is found if an edge connects to a vertex that is being processed in the stack of recursive calls (see theoretical classes). \end{DoxyCompactList}\item 
+vector$<$ T $>$ \mbox{\hyperlink{class_graph_a367bb25b34fa3e107d56d23321135f28}{dijkstra}} (const T \&start, const T \&end) const
+\begin{DoxyCompactList}\small\item\em Dijkstra Algorithm to find the shortest path between two nodes. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Graph$<$ T $>$}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00082}{82}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_graph_aad65bd37e161d60bce1db24825e5a632}\label{class_graph_aad65bd37e161d60bce1db24825e5a632} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addEdge@{addEdge}}
+\index{addEdge@{addEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addEdge()}{addEdge()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::add\+Edge (\begin{DoxyParamCaption}\item[{const T \&}]{sourc,  }\item[{const T \&}]{dest,  }\item[{double}]{w,  }\item[{unsigned}]{airline }\end{DoxyParamCaption})}
+
+
+
+Adds an edge to a graph (this), given the contents of the source and destination vertices and the edge weight (w). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sourc} & Source node. \\
+\hline
+{\em dest} & Destination node. \\
+\hline
+{\em w} & Weight of the connection. \\
+\hline
+{\em airline} & Unsigned value corresponding to the position of the airline in the vector. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if successful, and false if the source or destination vertex does not exist. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00377}{377}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_graph_a00be284ea2be3b3d0f0d2e493b70245b}\label{class_graph_a00be284ea2be3b3d0f0d2e493b70245b} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!addVertex@{addVertex}}
+\index{addVertex@{addVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{addVertex()}{addVertex()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::add\+Vertex (\begin{DoxyParamCaption}\item[{const T \&}]{in }\end{DoxyParamCaption})}
+
+
+
+Adds a vertex with a given content or info (in) to a graph (this). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Type T object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if successful, and false if a vertex with that content already exists. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00361}{361}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_graph_aa47a4130165550e208e7a063fce6983a}\label{class_graph_aa47a4130165550e208e7a063fce6983a} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!bfs@{bfs}}
+\index{bfs@{bfs}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{bfs()}{bfs()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$ T $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::bfs (\begin{DoxyParamCaption}\item[{const T \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Performs a breadth-\/first search (bfs) in a graph (this), starting from the vertex with the given source contents (source). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Source node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a vector with the contents of the vertices by bfs order. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00501}{501}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_graph_a911798b1a89f8c4ae90ba3eee849cff8}\label{class_graph_a911798b1a89f8c4ae90ba3eee849cff8} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!dfs@{dfs}}
+\index{dfs@{dfs}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$ T $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::dfs (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Performs a depth-\/first search (dfs) traversal in a graph (this). 
+
+\begin{DoxyReturn}{Returns}
+Returns a vector with the contents of the vertices by dfs order. Follows the algorithm described in theoretical classes. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00451}{451}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_graph_a510522c8221b321a82e687fe2f2cb484}\label{class_graph_a510522c8221b321a82e687fe2f2cb484} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!dfs@{dfs}}
+\index{dfs@{dfs}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dfs()}{dfs()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$ T $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::dfs (\begin{DoxyParamCaption}\item[{const T \&}]{source }\end{DoxyParamCaption}) const}
+
+
+
+Performs a depth-\/first search (dfs) in a graph (this). 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Source node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns a vector with the contents of the vertices by dfs order from the source node. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00482}{482}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_graph_a367bb25b34fa3e107d56d23321135f28}\label{class_graph_a367bb25b34fa3e107d56d23321135f28} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!dijkstra@{dijkstra}}
+\index{dijkstra@{dijkstra}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{dijkstra()}{dijkstra()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$ T $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::dijkstra (\begin{DoxyParamCaption}\item[{const T \&}]{start,  }\item[{const T \&}]{end }\end{DoxyParamCaption}) const\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Dijkstra Algorithm to find the shortest path between two nodes. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em start} & Start node. \\
+\hline
+{\em end} & End node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Vector that contains all nodes from the shortest path between two nodes. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00109}{109}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_graph_a8b7b7465fbfd562e2a469f90a437ab75}\label{class_graph_a8b7b7465fbfd562e2a469f90a437ab75} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!findVertex@{findVertex}}
+\index{findVertex@{findVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{findVertex()}{findVertex()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*} \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::find\+Vertex (\begin{DoxyParamCaption}\item[{const T \&}]{in }\end{DoxyParamCaption}) const}
+
+
+
+Auxiliary function to find a \doxylink{class_vertex}{Vertex} with a given content. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Type T object; \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns the \doxylink{class_vertex}{Vertex}. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00269}{269}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_graph_a0853eac15cdf0f06d63f4b8a7820ec71}\label{class_graph_a0853eac15cdf0f06d63f4b8a7820ec71} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getNumVertex@{getNumVertex}}
+\index{getNumVertex@{getNumVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getNumVertex()}{getNumVertex()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+int \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::get\+Num\+Vertex (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the vector size of all nodes. 
+
+\begin{DoxyReturn}{Returns}
+Vector size of all nodes. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00180}{180}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_graph_a923b43995f81ad9319bbc81a1e433e64}\label{class_graph_a923b43995f81ad9319bbc81a1e433e64} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!getVertexSet@{getVertexSet}}
+\index{getVertexSet@{getVertexSet}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{getVertexSet()}{getVertexSet()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$ \mbox{\hyperlink{class_vertex}{Vertex}}$<$ T $>$ \texorpdfstring{$\ast$}{*} $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::get\+Vertex\+Set (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Get the vector with all nodes. 
+
+\begin{DoxyReturn}{Returns}
+Vector with all nodes. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00188}{188}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_graph_a1ea1512afe5ab878301bc806c2eba9d2}\label{class_graph_a1ea1512afe5ab878301bc806c2eba9d2} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!isDAG@{isDAG}}
+\index{isDAG@{isDAG}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isDAG()}{isDAG()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::is\+DAG (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Performs a depth-\/first search in a graph (this), to determine if the graph is acyclic (acyclic directed graph or DAG). During the search, a cycle is found if an edge connects to a vertex that is being processed in the stack of recursive calls (see theoretical classes). 
+
+\begin{DoxyReturn}{Returns}
+Returns true if the graph is acyclic, and false otherwise. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00533}{533}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_graph_a1106092a37366486cf55576f9ec01692}\label{class_graph_a1106092a37366486cf55576f9ec01692} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!removeEdge@{removeEdge}}
+\index{removeEdge@{removeEdge}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{removeEdge()}{removeEdge()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::remove\+Edge (\begin{DoxyParamCaption}\item[{const T \&}]{sourc,  }\item[{const T \&}]{dest }\end{DoxyParamCaption})}
+
+
+
+Removes an edge from a graph (this). The edge is identified by the source (sourc) and destination (dest) contents. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sourc} & Source node. \\
+\hline
+{\em dest} & Destination node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if successful, and false if such edge does not exist. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00404}{404}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_graph_af9c903104ad69a7782979fa9caedf163}\label{class_graph_af9c903104ad69a7782979fa9caedf163} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!removeVertex@{removeVertex}}
+\index{removeVertex@{removeVertex}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{removeVertex()}{removeVertex()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+bool \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::remove\+Vertex (\begin{DoxyParamCaption}\item[{const T \&}]{in }\end{DoxyParamCaption})}
+
+
+
+Removes a vertex with a given content (in) from a graph (this), and all outgoing and incoming edges. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em in} & Type T object. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Returns true if successful, and false if such vertex does not exist. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00433}{433}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+\Hypertarget{class_graph_af1d4affd1f886bf598d0f4cf4a0cb7cb}\label{class_graph_af1d4affd1f886bf598d0f4cf4a0cb7cb} 
+\index{Graph$<$ T $>$@{Graph$<$ T $>$}!topsort@{topsort}}
+\index{topsort@{topsort}!Graph$<$ T $>$@{Graph$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{topsort()}{topsort()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+vector$<$ T $>$ \mbox{\hyperlink{class_graph}{Graph}}$<$ T $>$\+::topsort (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption}) const}
+
+
+
+Performs a topological sorting of the vertices of a graph (this). Returns a vector with the contents of the vertices by topological order. If the graph has cycles, returns an empty vector. Follows the algorithm described in theoretical classes. 
+
+\begin{DoxyReturn}{Returns}
+vector to tipo T ordenado pelo algoritmo Topsort. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_graph_8h_source_l00571}{571}} of file \mbox{\hyperlink{_graph_8h_source}{Graph.\+h}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{_graph_8h}{Graph.\+h}}\end{DoxyCompactItemize}

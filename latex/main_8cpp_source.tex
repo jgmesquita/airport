@@ -1,0 +1,441 @@
+\doxysection{main.\+cpp}
+\hypertarget{main_8cpp_source}{}\label{main_8cpp_source}\mbox{\hyperlink{main_8cpp}{Go to the documentation of this file.}}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00001}00001\ \textcolor{preprocessor}{\#include\ <iostream>}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00002}00002\ \textcolor{preprocessor}{\#include\ "{}\mbox{\hyperlink{_methods_8cpp}{Methods.cpp}}"{}}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00003}00003\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00004}00004\ \textcolor{keyword}{using\ namespace\ }std;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00008}\mbox{\hyperlink{main_8cpp_a13a43e6d814de94978c515cb084873b1}{00008}}\ \textcolor{keywordtype}{void}\ \mbox{\hyperlink{main_8cpp_a13a43e6d814de94978c515cb084873b1}{run}}()\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00009}00009\ \ \ \ \ vector<Airline>\ airlines;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00010}00010\ \ \ \ \ vector<Airport>\ airports;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00011}00011\ \ \ \ \ vector<Flight>\ flights\_vector;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00012}00012\ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}\ flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00013}00013\ \ \ \ \ set<string>\ cities;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00014}00014\ \ \ \ \ set<string>\ countries;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00015}00015\ \ \ \ \ \textcolor{keywordtype}{string}\ input;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00016}00016\ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a2a0e843767aeea4f433a28b9c54f573a}{menu}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00017}00017\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00018}00018\ \ \ \ \ \textcolor{keywordflow}{while}(cin\ >>\ input)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00019}00019\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00020}00020\ \ \ \ \ \ \ \ \ \ \ \ \ airlines\ =\ \mbox{\hyperlink{_methods_8cpp_a973de0ab45d9a109937533f92f311197}{loadAirlines}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00021}00021\ \ \ \ \ \ \ \ \ \ \ \ \ airports\ =\ \mbox{\hyperlink{_methods_8cpp_adf01f12110b0a4ba4c97a0b695286de2}{loadAirportsVector}}(cities,\ countries);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00022}00022\ \ \ \ \ \ \ \ \ \ \ \ \ flights\ =\ \mbox{\hyperlink{_methods_8cpp_a3103f055dd68395234da152cefe36c09}{loadAirportsGraph}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00023}00023\ \ \ \ \ \ \ \ \ \ \ \ \ flights\_vector\ =\ \mbox{\hyperlink{_methods_8cpp_a9ce95b2942862e596592bece70f50250}{loadFlightsVector}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00024}00024\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a82a2e2dbd19dbba1472f1ffb6eaf64cf}{loadFlights}}(flights,\ airports,\ airlines);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00025}00025\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}The\ data\ was\ loaded!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00026}00026\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00027}00027\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}2"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00028}00028\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_add3e0fa3c9c6c89854a39bef3e587871}{numberAirport}}(flights);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00029}00029\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_ab1739aab9bb2216c562938847efa83c8}{numberFlights}}(flights);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00030}00030\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a3e73264b586ece6238570e68563b2b7c}{numberAirlines}}(airlines);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00031}00031\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a421e634de8e6fd4f0fd4092cf9b9da18}{numberCountries}}(countries);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00032}00032\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_ad69d41d0e1eaed852be9f50fac9f1e8a}{numberCities}}(cities);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00033}00033\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00034}00034\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}3"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00035}00035\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_code;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00036}00036\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ from\ the\ airport!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00037}00037\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_code;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00038}00038\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a4459e2b8483bbfe24a1a44b1dcbac9d2}{numberFlightsFromAirport}}(airports,\ airlines,\ flights,\ airport\_code);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00039}00039\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00040}00040\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}4"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00041}00041\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Choose\ one\ of\ the\ following\ options:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00042}00042\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[0]\ -\/\ Select\ city!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00043}00043\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[1]\ -\/\ Select\ airline!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00044}00044\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ input2;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00045}00045\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ input2;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00046}00046\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}0"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00047}00047\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00048}00048\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ name\ of\ the\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00049}00049\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00050}00050\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a77c723e5636a47accd1e134505841d8a}{numberFlightsCity}}(city,\ flights);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00051}00051\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00052}00052\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00053}00053\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airline\_code;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00054}00054\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ airline\ code:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00055}00055\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airline\_code;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00056}00056\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_ab2cbbc3072f6525064aa3342acff63f5}{numberFlightsAirline}}(airline\_code,\ airlines,\ flights);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00057}00057\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00058}00058\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00059}00059\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}5"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00060}00060\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ input2;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00061}00061\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Choose\ one\ of\ the\ following\ options:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00062}00062\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[0]\ -\/\ From\ an\ airport!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00063}00063\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[1]\ -\/\ From\ a\ city!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00064}00064\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ input2;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00065}00065\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}0"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00066}00066\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_code;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00067}00067\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ of\ the\ airport:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00068}00068\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_code;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00069}00069\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a49f5a8617c9541b44f53ecc142d99220}{numberCountriesFromAirport}}(airport\_code,\ airports,\ flights);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00070}00070\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00071}00071\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00072}00072\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00073}00073\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00074}00074\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ name\ of\ the\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00075}00075\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00076}00076\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a4bc96f79d9a2710fed436b40c432f9dd}{numberCountriesFromCity}}(city,\ flights);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00077}00077\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00078}00078\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00079}00079\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}6"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00080}00080\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_code;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00081}00081\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ airport\ code:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00082}00082\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_code;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00083}00083\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ input2;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00084}00084\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Choose\ one\ of\ the\ following\ options:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00085}00085\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[0]\ -\/\ Airports\ available!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00086}00086\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[1]\ -\/\ Cities\ available!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00087}00087\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[2]\ -\/\ Countries\ available!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00088}00088\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ input2;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00089}00089\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}0"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00090}00090\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a2e9c2f0de0678ded3f4d9372a44425a9}{numberAirportsFromAirport}}(airport\_code,\ airports,\ flights);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00091}00091\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00092}00092\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00093}00093\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a4caab8be0ff89add7cfab7c699e1a27c}{numberCitiesFromAirport}}(airport\_code,\ airports,\ flights);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00094}00094\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00095}00095\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}2"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00096}00096\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a49f5a8617c9541b44f53ecc142d99220}{numberCountriesFromAirport}}(airport\_code,\ airports,\ flights);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00097}00097\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00098}00098\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00099}00099\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}7"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00100}00100\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ k;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00101}00101\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ number\ of\ stops:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00102}00102\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ k;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00103}00103\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00104}00104\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_code;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00105}00105\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ of\ the\ airport:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00106}00106\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_code;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00107}00107\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00108}00108\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ input2;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00109}00109\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Choose\ one\ of\ the\ following\ options:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00110}00110\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[0]\ -\/\ Number\ of\ reachable\ airports!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00111}00111\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[1]\ -\/\ Number\ of\ reachable\ cities!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00112}00112\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[2]\ -\/\ Number\ of\ reachable\ countries!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00113}00113\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ input2;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00114}00114\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00115}00115\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}0"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00116}00116\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_af45d6cdd4761c60698f80d066415b8f8}{numberAirportsFromXstops}}(airport\_code,\ k,\ airports,\ reference);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00117}00117\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00118}00118\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00119}00119\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a3db4422a183931d6c8a32b663d3a5726}{numberCitiesFromXstops}}(airport\_code,\ k,\ airports,\ reference);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00120}00120\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00121}00121\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}2"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00122}00122\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_adb60fa6dab1eeb76bf0b69c87154ea26}{numberCountriesFromXstops}}(airport\_code,\ k,\ airports,\ reference);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00123}00123\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00124}00124\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00125}00125\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}8"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00126}00126\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00127}00127\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a1afe2ba583fb510a72a21c7dfccef044}{FloydWarshallDiameter}}(reference);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00128}00128\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00129}00129\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}9"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00130}00130\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ k;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00131}00131\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ size\ of\ the\ list:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00132}00132\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ k;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00133}00133\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_ad269c04b7e104dc5255ae532934309d1}{maximumTraffic}}(flights,\ k);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00134}00134\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00135}00135\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}10"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00136}00136\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{int}\ count\ =\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00137}00137\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00138}00138\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keyword}{auto}\ it\ =\ \mbox{\hyperlink{_methods_8cpp_a1b8cb57e62f3b3f835e7fc030f23c2ed}{articulationPoints}}(reference);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00139}00139\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}The\ following\ airports\ are\ essential\ for\ the\ network's\ circulation\ capability:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00140}00140\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{for}\ (\mbox{\hyperlink{class_airport}{Airport}}\ a\ :\ it)\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00141}00141\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ count++;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00142}00142\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}-\/>\ ["{}}\ <<\ a.getCode()\ <<\ \textcolor{stringliteral}{"{}]\ -\/\ "{}}\ <<\ a.getName()\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00143}00143\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00144}00144\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}There\ are\ "{}}\ <<\ count\ <<\ \textcolor{stringliteral}{"{}\ essential\ airports!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00145}00145\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00146}00146\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}11"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00147}00147\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ input2;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00148}00148\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Choose\ the\ initial\ criteria:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00149}00149\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[0]\ -\/\ By\ airport\ code!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00150}00150\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[1]\ -\/\ By\ city\ name!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00151}00151\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[2]\ -\/\ By\ geographical\ coordinates"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00152}00152\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ input2;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00153}00153\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ input3;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00154}00154\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Choose\ the\ final\ criteria:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00155}00155\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[0]\ -\/\ By\ airport\ code!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00156}00156\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[1]\ -\/\ By\ city\ name!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00157}00157\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[2]\ -\/\ By\ geographical\ coordinates"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00158}00158\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ input3;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00159}00159\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}0"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}0"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00160}00160\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00161}00161\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00162}00162\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ of\ the\ source\ airport:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00163}00163\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00164}00164\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00165}00165\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ of\ the\ target\ airport:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00166}00166\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00167}00167\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_afea4de21c1df43ff77361d013c8a398d}{bestAirportAirport}}(reference,\ airports,\ airport\_source,\ airport\_target,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00168}00168\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00169}00169\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}0"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00170}00170\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00171}00171\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00172}00172\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ of\ the\ source\ airport:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00173}00173\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00174}00174\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00175}00175\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00176}00176\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00177}00177\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_acaa9f56a02f3a61998986b07af328c0c}{bestAirportCity}}(reference,\ city\_target,\ airport\_source,\ airports,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00178}00178\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00179}00179\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}0"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}2"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00180}00180\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00181}00181\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00182}00182\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ of\ the\ source\ airport:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00183}00183\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00184}00184\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00185}00185\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ latitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00186}00186\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00187}00187\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00188}00188\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ longitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00189}00189\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00190}00190\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00191}00191\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ maximum\ radius:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00192}00192\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00193}00193\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a1e3593fad62890dbad91974c6fe79d16}{bestAirportCoordinate}}(reference,\ airports,\ airport\_source,\ latitude,\ longitude,\ radius,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00194}00194\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00195}00195\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}1"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}0"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00196}00196\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00197}00197\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00198}00198\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00199}00199\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00200}00200\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00201}00201\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ of\ the\ target\ airport:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00202}00202\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00203}00203\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a4a8f894142e9779f873f1e4c260036dd}{bestCityAirport}}(reference,\ city\_source,\ airport\_target,\ airports,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00204}00204\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00205}00205\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00206}00206\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}1"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00207}00207\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00208}00208\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00209}00209\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00210}00210\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00211}00211\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00212}00212\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00213}00213\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00214}00214\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_ab43d924563765c4b2f2533d225659240}{bestCityCity}}(reference,\ city\_source,\ city\_target,\ airports,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00215}00215\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00216}00216\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00217}00217\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}1"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}2"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00218}00218\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00219}00219\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00220}00220\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00221}00221\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00222}00222\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00223}00223\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ latitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00224}00224\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00225}00225\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00226}00226\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ longitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00227}00227\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00228}00228\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00229}00229\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ maximum\ radius:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00230}00230\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00231}00231\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a63bf4f0fa765151ca8218d2a9fbdbd73}{bestCityCoordinate}}(reference,\ airports,\ city\_source,\ latitude,\ longitude,\ radius,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00232}00232\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00233}00233\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}2"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}0"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00234}00234\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00235}00235\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00236}00236\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ latitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00237}00237\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00238}00238\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00239}00239\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ longitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00240}00240\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00241}00241\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00242}00242\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ maximum\ radius:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00243}00243\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00244}00244\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00245}00245\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ airport\ code:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00246}00246\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00247}00247\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a07a4228e0ad5d515e3f7f2f45e7b47f3}{bestCoordinateAirport}}(reference,\ airports,\ airport\_target,\ latitude,\ longitude,\ radius,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00248}00248\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00249}00249\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}2"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00250}00250\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00251}00251\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00252}00252\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ latitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00253}00253\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00254}00254\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00255}00255\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ longitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00256}00256\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00257}00257\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00258}00258\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ maximum\ radius:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00259}00259\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00260}00260\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00261}00261\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00262}00262\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00263}00263\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_adaa98f101b3a64c33fcb84c4486ec7a0}{bestCoordinateCity}}(reference,\ airports,\ city\_target,\ latitude,\ longitude,\ radius,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00264}00264\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00265}00265\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}2"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}2"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00266}00266\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&flights;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00267}00267\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00268}00268\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ latitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00269}00269\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ latitude\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00270}00270\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00271}00271\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ longitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00272}00272\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ longitude\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00273}00273\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ radius\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00274}00274\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ maximum\ radius:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00275}00275\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ radius\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00276}00276\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00277}00277\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ latitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00278}00278\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ latitude\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00279}00279\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00280}00280\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ longitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00281}00281\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ longitude\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00282}00282\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ radius\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00283}00283\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ maximum\ radius:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00284}00284\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ radius\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00285}00285\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a2c06feb17c3f6ad285a758c6ae0c4bf2}{bestCoordinateCoordinate}}(reference,\ airports,\ latitude\_source,\ longitude\_source,\ radius\_source,\ latitude\_target,\ longitude\_target,\ radius\_target,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00286}00286\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00287}00287\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00288}00288\ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input\ ==\ \textcolor{stringliteral}{"{}12"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00289}00289\ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}\ g\ =\ \mbox{\hyperlink{_methods_8cpp_a7e07e37823c754cd86642e25a616e6cb}{createCustomGraph}}(airports,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00290}00290\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ input2;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00291}00291\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Choose\ the\ initial\ criteria:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00292}00292\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[0]\ -\/\ By\ airport\ code!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00293}00293\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[1]\ -\/\ By\ city\ name!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00294}00294\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[2]\ -\/\ By\ geographical\ coordinates"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00295}00295\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ input2;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00296}00296\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ input3;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00297}00297\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Choose\ the\ final\ criteria:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00298}00298\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[0]\ -\/\ By\ airport\ code!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00299}00299\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[1]\ -\/\ By\ city\ name!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00300}00300\ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}[2]\ -\/\ By\ geographical\ coordinates"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00301}00301\ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ input3;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00302}00302\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}0"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}0"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00303}00303\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&g;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00304}00304\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00305}00305\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ of\ the\ source\ airport:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00306}00306\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00307}00307\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00308}00308\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ of\ the\ target\ airport:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00309}00309\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00310}00310\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_afea4de21c1df43ff77361d013c8a398d}{bestAirportAirport}}(reference,\ airports,\ airport\_source,\ airport\_target,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00311}00311\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00312}00312\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}0"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00313}00313\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&g;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00314}00314\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00315}00315\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ of\ the\ source\ airport:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00316}00316\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00317}00317\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00318}00318\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00319}00319\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00320}00320\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_acaa9f56a02f3a61998986b07af328c0c}{bestAirportCity}}(reference,\ city\_target,\ airport\_source,\ airports,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00321}00321\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00322}00322\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}0"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}2"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00323}00323\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&g;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00324}00324\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00325}00325\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ of\ the\ source\ airport:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00326}00326\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00327}00327\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00328}00328\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ latitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00329}00329\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00330}00330\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00331}00331\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ longitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00332}00332\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00333}00333\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00334}00334\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ maximum\ radius:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00335}00335\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00336}00336\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a1e3593fad62890dbad91974c6fe79d16}{bestAirportCoordinate}}(reference,\ airports,\ airport\_source,\ latitude,\ longitude,\ radius,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00337}00337\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00338}00338\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}1"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}0"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00339}00339\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&g;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00340}00340\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00341}00341\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00342}00342\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00343}00343\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00344}00344\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ code\ of\ the\ target\ airport:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00345}00345\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00346}00346\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a4a8f894142e9779f873f1e4c260036dd}{bestCityAirport}}(reference,\ city\_source,\ airport\_target,\ airports,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00347}00347\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00348}00348\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00349}00349\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}1"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00350}00350\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&g;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00351}00351\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00352}00352\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00353}00353\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00354}00354\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00355}00355\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00356}00356\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00357}00357\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_ab43d924563765c4b2f2533d225659240}{bestCityCity}}(reference,\ city\_source,\ city\_target,\ airports,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00358}00358\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00359}00359\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00360}00360\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}1"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}2"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00361}00361\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&g;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00362}00362\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00363}00363\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00364}00364\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00365}00365\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00366}00366\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ latitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00367}00367\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00368}00368\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00369}00369\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ longitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00370}00370\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00371}00371\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00372}00372\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ maximum\ radius:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00373}00373\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00374}00374\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a63bf4f0fa765151ca8218d2a9fbdbd73}{bestCityCoordinate}}(reference,\ airports,\ city\_source,\ latitude,\ longitude,\ radius,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00375}00375\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00376}00376\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}2"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}0"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00377}00377\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&g;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00378}00378\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00379}00379\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ latitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00380}00380\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00381}00381\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00382}00382\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ longitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00383}00383\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00384}00384\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00385}00385\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ maximum\ radius:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00386}00386\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00387}00387\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ airport\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00388}00388\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ airport\ code:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00389}00389\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ airport\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00390}00390\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a07a4228e0ad5d515e3f7f2f45e7b47f3}{bestCoordinateAirport}}(reference,\ airports,\ airport\_target,\ latitude,\ longitude,\ radius,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00391}00391\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00392}00392\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}2"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}1"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00393}00393\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&g;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00394}00394\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00395}00395\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ latitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00396}00396\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ latitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00397}00397\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00398}00398\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ longitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00399}00399\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ longitude;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00400}00400\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00401}00401\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ maximum\ radius:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00402}00402\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ radius;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00403}00403\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{string}\ city\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00404}00404\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ city:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00405}00405\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ city\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00406}00406\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_adaa98f101b3a64c33fcb84c4486ec7a0}{bestCoordinateCity}}(reference,\ airports,\ city\_target,\ latitude,\ longitude,\ radius,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00407}00407\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00408}00408\ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordflow}{else}\ \textcolor{keywordflow}{if}\ (input2\ ==\ \textcolor{stringliteral}{"{}2"{}}\ \&\&\ input3\ ==\ \textcolor{stringliteral}{"{}2"{}})\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00409}00409\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{class_graph}{Graph<Airport>}}*\ reference\ =\ \&g;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00410}00410\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00411}00411\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ latitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00412}00412\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ latitude\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00413}00413\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00414}00414\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ source\ longitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00415}00415\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ longitude\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00416}00416\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ radius\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00417}00417\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ maximum\ radius:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00418}00418\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ radius\_source;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00419}00419\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ latitude\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00420}00420\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ latitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00421}00421\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ latitude\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00422}00422\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ longitude\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00423}00423\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ target\ longitude:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00424}00424\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ longitude\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00425}00425\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \textcolor{keywordtype}{double}\ radius\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00426}00426\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}Introduce\ the\ maximum\ radius:"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00427}00427\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ cin\ >>\ radius\_target;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00428}00428\ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a2c06feb17c3f6ad285a758c6ae0c4bf2}{bestCoordinateCoordinate}}(reference,\ airports,\ latitude\_source,\ longitude\_source,\ radius\_source,\ latitude\_target,\ longitude\_target,\ radius\_target,\ flights\_vector);}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00429}00429\ \ \ \ \ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00430}00430\ \ \ \ \ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00431}00431\ \ \ \ \ \ \ \ \ \mbox{\hyperlink{_methods_8cpp_a2a0e843767aeea4f433a28b9c54f573a}{menu}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00432}00432\ \ \ \ \ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00433}00433\ \}}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00434}00434\ }
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00435}\mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{00435}}\ \textcolor{keywordtype}{int}\ \mbox{\hyperlink{main_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main}}()\ \{}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00436}00436\ \ \ \ \ cout\ <<\ \textcolor{stringliteral}{"{}The\ program\ is\ running!"{}}\ <<\ endl;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00437}00437\ \ \ \ \ \mbox{\hyperlink{main_8cpp_a13a43e6d814de94978c515cb084873b1}{run}}();}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00438}00438\ \ \ \ \ \textcolor{keywordflow}{return}\ 0;}
+\DoxyCodeLine{\Hypertarget{main_8cpp_source_l00439}00439\ \}}
+
+\end{DoxyCode}

@@ -1,0 +1,1083 @@
+\doxysection{Methods.\+cpp File Reference}
+\hypertarget{_methods_8cpp}{}\label{_methods_8cpp}\index{Methods.cpp@{Methods.cpp}}
+{\ttfamily \#include $<$fstream$>$}\newline
+{\ttfamily \#include $<$sstream$>$}\newline
+{\ttfamily \#include $<$cmath$>$}\newline
+{\ttfamily \#include $<$set$>$}\newline
+{\ttfamily \#include $<$map$>$}\newline
+{\ttfamily \#include $<$algorithm$>$}\newline
+{\ttfamily \#include $<$unordered\+\_\+set$>$}\newline
+{\ttfamily \#include "{}Airport.\+cpp"{}}\newline
+{\ttfamily \#include "{}Airline.\+cpp"{}}\newline
+{\ttfamily \#include "{}Flight.\+cpp"{}}\newline
+{\ttfamily \#include "{}Graph.\+h"{}}\newline
+\doxysubsubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \mbox{\hyperlink{_methods_8cpp_a68063177917d08a231ffad46577076ea}{haversine\+Airport}} (\mbox{\hyperlink{class_airport}{Airport}} a1, \mbox{\hyperlink{class_airport}{Airport}} a2)
+\begin{DoxyCompactList}\small\item\em Calculate the distance between two airports using Haversine Formula. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \mbox{\hyperlink{_methods_8cpp_a3103f055dd68395234da152cefe36c09}{load\+Airports\+Graph}} ()
+\begin{DoxyCompactList}\small\item\em Load the data from "{}airports.\+csv"{}. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \mbox{\hyperlink{_methods_8cpp_adf01f12110b0a4ba4c97a0b695286de2}{load\+Airports\+Vector}} (set$<$ string $>$ \&cities, set$<$ string $>$ \&countries)
+\begin{DoxyCompactList}\small\item\em Load the data from "{}airports.\+csv"{}. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_airline}{Airline}} $>$ \mbox{\hyperlink{_methods_8cpp_a973de0ab45d9a109937533f92f311197}{load\+Airlines}} ()
+\begin{DoxyCompactList}\small\item\em Reads the data from "{}airlines.\+csv"{}. \end{DoxyCompactList}\item 
+vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ \mbox{\hyperlink{_methods_8cpp_a9ce95b2942862e596592bece70f50250}{load\+Flights\+Vector}} ()
+\begin{DoxyCompactList}\small\item\em Load the data from "{}flights.\+csv"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a82a2e2dbd19dbba1472f1ffb6eaf64cf}{load\+Flights}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&airports, vector$<$ \mbox{\hyperlink{class_airline}{Airline}} $>$ airlines)
+\begin{DoxyCompactList}\small\item\em Add all edges to all nodes in the graph of the airports from the data of "{}flights.\+csv"{}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_add3e0fa3c9c6c89854a39bef3e587871}{number\+Airport}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights)
+\begin{DoxyCompactList}\small\item\em Number of airports. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_ab1739aab9bb2216c562938847efa83c8}{number\+Flights}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights)
+\begin{DoxyCompactList}\small\item\em Number of flights. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a3e73264b586ece6238570e68563b2b7c}{number\+Airlines}} (vector$<$ \mbox{\hyperlink{class_airline}{Airline}} $>$ \&airlines)
+\begin{DoxyCompactList}\small\item\em Number of airlines. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a421e634de8e6fd4f0fd4092cf9b9da18}{number\+Countries}} (set$<$ string $>$ \&countries)
+\begin{DoxyCompactList}\small\item\em Number of countries. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_ad69d41d0e1eaed852be9f50fac9f1e8a}{number\+Cities}} (set$<$ string $>$ \&cities)
+\begin{DoxyCompactList}\small\item\em Number of cities. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a4459e2b8483bbfe24a1a44b1dcbac9d2}{number\+Flights\+From\+Airport}} (vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&airports, vector$<$ \mbox{\hyperlink{class_airline}{Airline}} $>$ \&airlines, \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights, string airport\+\_\+code)
+\begin{DoxyCompactList}\small\item\em Number of flights from an airport. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a77c723e5636a47accd1e134505841d8a}{number\+Flights\+City}} (string \&city, \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights)
+\begin{DoxyCompactList}\small\item\em Number of flights of a city. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_ab2cbbc3072f6525064aa3342acff63f5}{number\+Flights\+Airline}} (string \&airline\+\_\+code, vector$<$ \mbox{\hyperlink{class_airline}{Airline}} $>$ \&airlines, \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights)
+\begin{DoxyCompactList}\small\item\em Number of flights of a airline. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a2e9c2f0de0678ded3f4d9372a44425a9}{number\+Airports\+From\+Airport}} (string \&airport\+\_\+code, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&airports, \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights)
+\begin{DoxyCompactList}\small\item\em Number of airports that can be reached directly from an airport. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a4caab8be0ff89add7cfab7c699e1a27c}{number\+Cities\+From\+Airport}} (string \&airport\+\_\+code, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&airports, \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights)
+\begin{DoxyCompactList}\small\item\em Number of cities that can be reached directly from an airport. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a49f5a8617c9541b44f53ecc142d99220}{number\+Countries\+From\+Airport}} (string \&airport\+\_\+code, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&airports, \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights)
+\begin{DoxyCompactList}\small\item\em Number of countries that can be reached directly from an airport. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a4bc96f79d9a2710fed436b40c432f9dd}{number\+Countries\+From\+City}} (string \&city, \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights)
+\begin{DoxyCompactList}\small\item\em Number of countries that can be reached directly from a city. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_af45d6cdd4761c60698f80d066415b8f8}{number\+Airports\+From\+Xstops}} (string \&airport\+\_\+code, int k, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&airports, \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}flights)
+\begin{DoxyCompactList}\small\item\em Number of airports that can be reached within x stops from an airport. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a3db4422a183931d6c8a32b663d3a5726}{number\+Cities\+From\+Xstops}} (string \&airport\+\_\+code, int k, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&airports, \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}flights)
+\begin{DoxyCompactList}\small\item\em Number of cities that can be reached within x stops from an airport. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_adb60fa6dab1eeb76bf0b69c87154ea26}{number\+Countries\+From\+Xstops}} (string \&airport\+\_\+code, int k, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&airports, \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}flights)
+\begin{DoxyCompactList}\small\item\em Number of countries that can be reached within x stops from an airport. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_methods_8cpp_adc52c74906d7c74c22c503cfcfc73939}{compare}} (pair$<$ \mbox{\hyperlink{class_airport}{Airport}}, unsigned $>$ p1, pair$<$ \mbox{\hyperlink{class_airport}{Airport}}, unsigned $>$ p2)
+\item 
+map$<$ \mbox{\hyperlink{class_airport}{Airport}}, unsigned $>$ \mbox{\hyperlink{_methods_8cpp_a48fa7d95f2afa777e781f7aea3a0caaf}{maximum\+Partida}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights, int k)
+\begin{DoxyCompactList}\small\item\em Number of flights that departure from an airport. \end{DoxyCompactList}\item 
+map$<$ \mbox{\hyperlink{class_airport}{Airport}}, unsigned $>$ \mbox{\hyperlink{_methods_8cpp_a4fe43b1a4d20801b4af48068ea855def}{maximum\+Chegada}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights, int k)
+\begin{DoxyCompactList}\small\item\em Number of flights reach to an airport. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_ad269c04b7e104dc5255ae532934309d1}{maximum\+Traffic}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&flights, int k)
+\begin{DoxyCompactList}\small\item\em Number of flights a airport. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a0a6fe1a3c83b3ed8f0696ab20c80fc6c}{dfs\+\_\+art}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}g, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}v, stack$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&s, unordered\+\_\+set$<$ \mbox{\hyperlink{class_airport}{Airport}}, \mbox{\hyperlink{struct_hash_airport}{Hash\+Airport}}, \mbox{\hyperlink{struct_hash_airport}{Hash\+Airport}} $>$ \&l, int \&i)
+\item 
+unordered\+\_\+set$<$ \mbox{\hyperlink{class_airport}{Airport}}, \mbox{\hyperlink{struct_hash_airport}{Hash\+Airport}}, \mbox{\hyperlink{struct_hash_airport}{Hash\+Airport}} $>$ \mbox{\hyperlink{_methods_8cpp_a1b8cb57e62f3b3f835e7fc030f23c2ed}{articulation\+Points}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Calculate the articulation points. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a150f56a343bf00c044fd5a463fda3862}{interface\+Path}} (vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports, vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ flights\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Function to convert a vector to a more readable data for the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_afea4de21c1df43ff77361d013c8a398d}{best\+Airport\+Airport}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}flights, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&airports, string airport\+\_\+code1, string airport\+\_\+code2, vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ flights\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Calculate the best path between two airports. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_acaa9f56a02f3a61998986b07af328c0c}{best\+Airport\+City}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}flights, string city, string airport\+\_\+code, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports, vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ flights\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Calculate the best path between two airports. \end{DoxyCompactList}\item 
+double \mbox{\hyperlink{_methods_8cpp_a8da2598414f7466e4938a73c314a2744}{haversine\+Airport\+Coordinate}} (\mbox{\hyperlink{class_airport}{Airport}} a1, double latitude, double longitude)
+\begin{DoxyCompactList}\small\item\em Alternative function to calculate the distance of an airport to a location. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a1e3593fad62890dbad91974c6fe79d16}{best\+Airport\+Coordinate}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}flights, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports, string airport\+\_\+code, double latitude, double longitude, double radius, vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ flights\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Calculate the best path between two airports. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a4a8f894142e9779f873f1e4c260036dd}{best\+City\+Airport}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}flights, string city, string airport\+\_\+code, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports, vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ flights\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Calculate the best path between two airports. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_ab43d924563765c4b2f2533d225659240}{best\+City\+City}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}flights, string city1, string city2, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports, vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ flights\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Calculate the best path between two airports. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a63bf4f0fa765151ca8218d2a9fbdbd73}{best\+City\+Coordinate}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}flights, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports, string city, double latitude, double longitude, double radius, vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ flights\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Calculate the best path between two airports. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a07a4228e0ad5d515e3f7f2f45e7b47f3}{best\+Coordinate\+Airport}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}flights, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports, string airport\+\_\+code, double latitude, double longitude, double radius, vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ flights\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Calculate the best path between two airports. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_adaa98f101b3a64c33fcb84c4486ec7a0}{best\+Coordinate\+City}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}flights, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports, string city, double latitude, double longitude, double radius, vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ flights\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Calculate the best path between two airports. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a2c06feb17c3f6ad285a758c6ae0c4bf2}{best\+Coordinate\+Coordinate}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}flights, vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports, double latitude\+\_\+source, double longitude\+\_\+source, double radius\+\_\+source, double latitude\+\_\+target, double longitude\+\_\+target, double radius\+\_\+target, vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ flights\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Calculate the best path between two airports. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{_methods_8cpp_ae910332d41cbf1cf857935b047b74cad}{find\+Edge}} (\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}source, \mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}target)
+\begin{DoxyCompactList}\small\item\em Auxiliary function for the Floyd Warshall algorithm. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a1afe2ba583fb510a72a21c7dfccef044}{Floyd\+Warshall\+Diameter}} (\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}g)
+\begin{DoxyCompactList}\small\item\em Calculate the diameter of the graph with all the airports. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \mbox{\hyperlink{_methods_8cpp_a7e07e37823c754cd86642e25a616e6cb}{create\+Custom\+Graph}} (vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ airports, vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ flights\+\_\+vector)
+\begin{DoxyCompactList}\small\item\em Function to create a custom graph with the preferences of the user. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{_methods_8cpp_a2a0e843767aeea4f433a28b9c54f573a}{menu}} ()
+\begin{DoxyCompactList}\small\item\em Interface of the menu. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\Hypertarget{_methods_8cpp_a1b8cb57e62f3b3f835e7fc030f23c2ed}\label{_methods_8cpp_a1b8cb57e62f3b3f835e7fc030f23c2ed} 
+\index{Methods.cpp@{Methods.cpp}!articulationPoints@{articulationPoints}}
+\index{articulationPoints@{articulationPoints}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{articulationPoints()}{articulationPoints()}}
+{\footnotesize\ttfamily unordered\+\_\+set$<$ \mbox{\hyperlink{class_airport}{Airport}}, \mbox{\hyperlink{struct_hash_airport}{Hash\+Airport}}, \mbox{\hyperlink{struct_hash_airport}{Hash\+Airport}} $>$ articulation\+Points (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{g }\end{DoxyParamCaption})}
+
+
+
+Calculate the articulation points. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \doxylink{class_graph}{Graph} with all airports \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Unordered set containing all the airports essential for the network. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00735}{735}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_afea4de21c1df43ff77361d013c8a398d}\label{_methods_8cpp_afea4de21c1df43ff77361d013c8a398d} 
+\index{Methods.cpp@{Methods.cpp}!bestAirportAirport@{bestAirportAirport}}
+\index{bestAirportAirport@{bestAirportAirport}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{bestAirportAirport()}{bestAirportAirport()}}
+{\footnotesize\ttfamily void best\+Airport\+Airport (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{flights,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{airports,  }\item[{string}]{airport\+\_\+code1,  }\item[{string}]{airport\+\_\+code2,  }\item[{vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$}]{flights\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Calculate the best path between two airports. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em airport\+\_\+code1} & \doxylink{class_airport}{Airport} code 1. \\
+\hline
+{\em airport\+\_\+code2} & \doxylink{class_airport}{Airport} code 2. \\
+\hline
+{\em flights\+\_\+vector} & Vector with all the flights. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00776}{776}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_acaa9f56a02f3a61998986b07af328c0c}\label{_methods_8cpp_acaa9f56a02f3a61998986b07af328c0c} 
+\index{Methods.cpp@{Methods.cpp}!bestAirportCity@{bestAirportCity}}
+\index{bestAirportCity@{bestAirportCity}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{bestAirportCity()}{bestAirportCity()}}
+{\footnotesize\ttfamily void best\+Airport\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{flights,  }\item[{string}]{city,  }\item[{string}]{airport\+\_\+code,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{airports,  }\item[{vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$}]{flights\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Calculate the best path between two airports. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em airport\+\_\+code} & \doxylink{class_airport}{Airport} code. \\
+\hline
+{\em city} & Name of the city. \\
+\hline
+{\em flights\+\_\+vector} & Vector with all the flights. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00812}{812}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a1e3593fad62890dbad91974c6fe79d16}\label{_methods_8cpp_a1e3593fad62890dbad91974c6fe79d16} 
+\index{Methods.cpp@{Methods.cpp}!bestAirportCoordinate@{bestAirportCoordinate}}
+\index{bestAirportCoordinate@{bestAirportCoordinate}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{bestAirportCoordinate()}{bestAirportCoordinate()}}
+{\footnotesize\ttfamily void best\+Airport\+Coordinate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{flights,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{airports,  }\item[{string}]{airport\+\_\+code,  }\item[{double}]{latitude,  }\item[{double}]{longitude,  }\item[{double}]{radius,  }\item[{vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$}]{flights\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Calculate the best path between two airports. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em airport\+\_\+code} & \doxylink{class_airport}{Airport} code. \\
+\hline
+{\em latitude} & Latitude. \\
+\hline
+{\em longitude} & Longitude. \\
+\hline
+{\em radius} & Radius. \\
+\hline
+{\em flights\+\_\+vector} & Vector with all the flights \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00875}{875}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a4a8f894142e9779f873f1e4c260036dd}\label{_methods_8cpp_a4a8f894142e9779f873f1e4c260036dd} 
+\index{Methods.cpp@{Methods.cpp}!bestCityAirport@{bestCityAirport}}
+\index{bestCityAirport@{bestCityAirport}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{bestCityAirport()}{bestCityAirport()}}
+{\footnotesize\ttfamily void best\+City\+Airport (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{flights,  }\item[{string}]{city,  }\item[{string}]{airport\+\_\+code,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{airports,  }\item[{vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$}]{flights\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Calculate the best path between two airports. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em airport\+\_\+code} & \doxylink{class_airport}{Airport} code. \\
+\hline
+{\em city} & Name of the city. \\
+\hline
+{\em flights\+\_\+vector} & Vector with all the flights. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00917}{917}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_ab43d924563765c4b2f2533d225659240}\label{_methods_8cpp_ab43d924563765c4b2f2533d225659240} 
+\index{Methods.cpp@{Methods.cpp}!bestCityCity@{bestCityCity}}
+\index{bestCityCity@{bestCityCity}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{bestCityCity()}{bestCityCity()}}
+{\footnotesize\ttfamily void best\+City\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{flights,  }\item[{string}]{city1,  }\item[{string}]{city2,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{airports,  }\item[{vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$}]{flights\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Calculate the best path between two airports. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em city1} & Name of the city 1. \\
+\hline
+{\em city2} & Name of the city 2. \\
+\hline
+{\em flights\+\_\+vector} & Vector with all the flights. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00959}{959}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a63bf4f0fa765151ca8218d2a9fbdbd73}\label{_methods_8cpp_a63bf4f0fa765151ca8218d2a9fbdbd73} 
+\index{Methods.cpp@{Methods.cpp}!bestCityCoordinate@{bestCityCoordinate}}
+\index{bestCityCoordinate@{bestCityCoordinate}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{bestCityCoordinate()}{bestCityCoordinate()}}
+{\footnotesize\ttfamily void best\+City\+Coordinate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{flights,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{airports,  }\item[{string}]{city,  }\item[{double}]{latitude,  }\item[{double}]{longitude,  }\item[{double}]{radius,  }\item[{vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$}]{flights\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Calculate the best path between two airports. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em city} & Name of the city. \\
+\hline
+{\em latitude} & Latitude. \\
+\hline
+{\em longitude} & Longitude. \\
+\hline
+{\em radius} & Radius. \\
+\hline
+{\em flights\+\_\+vector} & Vector with all the flights \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l01010}{1010}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a07a4228e0ad5d515e3f7f2f45e7b47f3}\label{_methods_8cpp_a07a4228e0ad5d515e3f7f2f45e7b47f3} 
+\index{Methods.cpp@{Methods.cpp}!bestCoordinateAirport@{bestCoordinateAirport}}
+\index{bestCoordinateAirport@{bestCoordinateAirport}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{bestCoordinateAirport()}{bestCoordinateAirport()}}
+{\footnotesize\ttfamily void best\+Coordinate\+Airport (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{flights,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{airports,  }\item[{string}]{airport\+\_\+code,  }\item[{double}]{latitude,  }\item[{double}]{longitude,  }\item[{double}]{radius,  }\item[{vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$}]{flights\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Calculate the best path between two airports. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em airport\+\_\+code} & \doxylink{class_airport}{Airport} code. \\
+\hline
+{\em latitude} & Latitude. \\
+\hline
+{\em longitude} & Longitude. \\
+\hline
+{\em radius} & Radius. \\
+\hline
+{\em flights\+\_\+vector} & Vector with all the flights \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l01061}{1061}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_adaa98f101b3a64c33fcb84c4486ec7a0}\label{_methods_8cpp_adaa98f101b3a64c33fcb84c4486ec7a0} 
+\index{Methods.cpp@{Methods.cpp}!bestCoordinateCity@{bestCoordinateCity}}
+\index{bestCoordinateCity@{bestCoordinateCity}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{bestCoordinateCity()}{bestCoordinateCity()}}
+{\footnotesize\ttfamily void best\+Coordinate\+City (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{flights,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{airports,  }\item[{string}]{city,  }\item[{double}]{latitude,  }\item[{double}]{longitude,  }\item[{double}]{radius,  }\item[{vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$}]{flights\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Calculate the best path between two airports. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em city} & Name of the city. \\
+\hline
+{\em latitude} & Latitude. \\
+\hline
+{\em longitude} & Longitude. \\
+\hline
+{\em radius} & Radius. \\
+\hline
+{\em flights\+\_\+vector} & Vector with all the flights \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l01106}{1106}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a2c06feb17c3f6ad285a758c6ae0c4bf2}\label{_methods_8cpp_a2c06feb17c3f6ad285a758c6ae0c4bf2} 
+\index{Methods.cpp@{Methods.cpp}!bestCoordinateCoordinate@{bestCoordinateCoordinate}}
+\index{bestCoordinateCoordinate@{bestCoordinateCoordinate}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{bestCoordinateCoordinate()}{bestCoordinateCoordinate()}}
+{\footnotesize\ttfamily void best\+Coordinate\+Coordinate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{flights,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{airports,  }\item[{double}]{latitude\+\_\+source,  }\item[{double}]{longitude\+\_\+source,  }\item[{double}]{radius\+\_\+source,  }\item[{double}]{latitude\+\_\+target,  }\item[{double}]{longitude\+\_\+target,  }\item[{double}]{radius\+\_\+target,  }\item[{vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$}]{flights\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Calculate the best path between two airports. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em latitude\+\_\+source} & Source latitude. \\
+\hline
+{\em longitude\+\_\+source} & Source longitude. \\
+\hline
+{\em radius\+\_\+source} & Source radius. \\
+\hline
+{\em latitude\+\_\+target} & Target latitude. \\
+\hline
+{\em longitude\+\_\+target} & Target longitude. \\
+\hline
+{\em radius\+\_\+target} & Target radius. \\
+\hline
+{\em flights\+\_\+vector} & Vector with all the flights. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l01159}{1159}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_adc52c74906d7c74c22c503cfcfc73939}\label{_methods_8cpp_adc52c74906d7c74c22c503cfcfc73939} 
+\index{Methods.cpp@{Methods.cpp}!compare@{compare}}
+\index{compare@{compare}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{compare()}{compare()}}
+{\footnotesize\ttfamily bool compare (\begin{DoxyParamCaption}\item[{pair$<$ \mbox{\hyperlink{class_airport}{Airport}}, unsigned $>$}]{p1,  }\item[{pair$<$ \mbox{\hyperlink{class_airport}{Airport}}, unsigned $>$}]{p2 }\end{DoxyParamCaption})}
+
+@\+Brief Function to compare two airports by the number of flights. 
+\begin{DoxyParams}{Parameters}
+{\em p1} & First airport. \\
+\hline
+{\em p2} & Second airport. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value result. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00609}{609}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a7e07e37823c754cd86642e25a616e6cb}\label{_methods_8cpp_a7e07e37823c754cd86642e25a616e6cb} 
+\index{Methods.cpp@{Methods.cpp}!createCustomGraph@{createCustomGraph}}
+\index{createCustomGraph@{createCustomGraph}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{createCustomGraph()}{createCustomGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ create\+Custom\+Graph (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{airports,  }\item[{vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$}]{flights\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Function to create a custom graph with the preferences of the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em flights\+\_\+vector} & Vector with all the flights. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+\doxylink{class_graph}{Graph} with the preferences of the user. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l01270}{1270}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a0a6fe1a3c83b3ed8f0696ab20c80fc6c}\label{_methods_8cpp_a0a6fe1a3c83b3ed8f0696ab20c80fc6c} 
+\index{Methods.cpp@{Methods.cpp}!dfs\_art@{dfs\_art}}
+\index{dfs\_art@{dfs\_art}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{dfs\_art()}{dfs\_art()}}
+{\footnotesize\ttfamily void dfs\+\_\+art (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{g,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{v,  }\item[{stack$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{s,  }\item[{unordered\+\_\+set$<$ \mbox{\hyperlink{class_airport}{Airport}}, \mbox{\hyperlink{struct_hash_airport}{Hash\+Airport}}, \mbox{\hyperlink{struct_hash_airport}{Hash\+Airport}} $>$ \&}]{l,  }\item[{int \&}]{i }\end{DoxyParamCaption})}
+
+Auxiliar function to calculate the articulation points. 
+\begin{DoxyParams}{Parameters}
+{\em g} & \doxylink{class_graph}{Graph}. \\
+\hline
+{\em v} & \doxylink{class_vertex}{Vertex} being visited. \\
+\hline
+{\em s} & Stack with airports. \\
+\hline
+{\em l} & Unordered set of airports. \\
+\hline
+{\em i} & Distance being visited. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00700}{700}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_ae910332d41cbf1cf857935b047b74cad}\label{_methods_8cpp_ae910332d41cbf1cf857935b047b74cad} 
+\index{Methods.cpp@{Methods.cpp}!findEdge@{findEdge}}
+\index{findEdge@{findEdge}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{findEdge()}{findEdge()}}
+{\footnotesize\ttfamily bool find\+Edge (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{source,  }\item[{\mbox{\hyperlink{class_vertex}{Vertex}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{target }\end{DoxyParamCaption})}
+
+
+
+Auxiliary function for the Floyd Warshall algorithm. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Source node. \\
+\hline
+{\em target} & Target node. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Boolean value. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l01206}{1206}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a1afe2ba583fb510a72a21c7dfccef044}\label{_methods_8cpp_a1afe2ba583fb510a72a21c7dfccef044} 
+\index{Methods.cpp@{Methods.cpp}!FloydWarshallDiameter@{FloydWarshallDiameter}}
+\index{FloydWarshallDiameter@{FloydWarshallDiameter}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{FloydWarshallDiameter()}{FloydWarshallDiameter()}}
+{\footnotesize\ttfamily void Floyd\+Warshall\+Diameter (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{g }\end{DoxyParamCaption})}
+
+
+
+Calculate the diameter of the graph with all the airports. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em g} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l01219}{1219}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a68063177917d08a231ffad46577076ea}\label{_methods_8cpp_a68063177917d08a231ffad46577076ea} 
+\index{Methods.cpp@{Methods.cpp}!haversineAirport@{haversineAirport}}
+\index{haversineAirport@{haversineAirport}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{haversineAirport()}{haversineAirport()}}
+{\footnotesize\ttfamily double haversine\+Airport (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport}{Airport}}}]{a1,  }\item[{\mbox{\hyperlink{class_airport}{Airport}}}]{a2 }\end{DoxyParamCaption})}
+
+
+
+Calculate the distance between two airports using Haversine Formula. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \doxylink{class_airport}{Airport} 1. \\
+\hline
+{\em a2} & \doxylink{class_airport}{Airport} 2. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance between the two airports. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00020}{20}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a8da2598414f7466e4938a73c314a2744}\label{_methods_8cpp_a8da2598414f7466e4938a73c314a2744} 
+\index{Methods.cpp@{Methods.cpp}!haversineAirportCoordinate@{haversineAirportCoordinate}}
+\index{haversineAirportCoordinate@{haversineAirportCoordinate}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{haversineAirportCoordinate()}{haversineAirportCoordinate()}}
+{\footnotesize\ttfamily double haversine\+Airport\+Coordinate (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_airport}{Airport}}}]{a1,  }\item[{double}]{latitude,  }\item[{double}]{longitude }\end{DoxyParamCaption})}
+
+
+
+Alternative function to calculate the distance of an airport to a location. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em a1} & \doxylink{class_airport}{Airport}. \\
+\hline
+{\em latitude} & Latitude. \\
+\hline
+{\em longitude} & Longitude. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Distance of an airport to a location. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00853}{853}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a150f56a343bf00c044fd5a463fda3862}\label{_methods_8cpp_a150f56a343bf00c044fd5a463fda3862} 
+\index{Methods.cpp@{Methods.cpp}!interfacePath@{interfacePath}}
+\index{interfacePath@{interfacePath}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{interfacePath()}{interfacePath()}}
+{\footnotesize\ttfamily void interface\+Path (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$}]{airports,  }\item[{vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$}]{flights\+\_\+vector }\end{DoxyParamCaption})}
+
+
+
+Function to convert a vector to a more readable data for the user. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airports} & Vector with all airports. \\
+\hline
+{\em flights\+\_\+vector} & Vector with all flights. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00754}{754}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a973de0ab45d9a109937533f92f311197}\label{_methods_8cpp_a973de0ab45d9a109937533f92f311197} 
+\index{Methods.cpp@{Methods.cpp}!loadAirlines@{loadAirlines}}
+\index{loadAirlines@{loadAirlines}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{loadAirlines()}{loadAirlines()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_airline}{Airline}} $>$ load\+Airlines (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Reads the data from "{}airlines.\+csv"{}. 
+
+\begin{DoxyReturn}{Returns}
+Vector with all the airlines from the data. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00102}{102}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a3103f055dd68395234da152cefe36c09}\label{_methods_8cpp_a3103f055dd68395234da152cefe36c09} 
+\index{Methods.cpp@{Methods.cpp}!loadAirportsGraph@{loadAirportsGraph}}
+\index{loadAirportsGraph@{loadAirportsGraph}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{loadAirportsGraph()}{loadAirportsGraph()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ load\+Airports\+Graph (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Load the data from "{}airports.\+csv"{}. 
+
+\begin{DoxyReturn}{Returns}
+\doxylink{class_graph}{Graph} from the data read. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00036}{36}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_adf01f12110b0a4ba4c97a0b695286de2}\label{_methods_8cpp_adf01f12110b0a4ba4c97a0b695286de2} 
+\index{Methods.cpp@{Methods.cpp}!loadAirportsVector@{loadAirportsVector}}
+\index{loadAirportsVector@{loadAirportsVector}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{loadAirportsVector()}{loadAirportsVector()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ load\+Airports\+Vector (\begin{DoxyParamCaption}\item[{set$<$ string $>$ \&}]{cities,  }\item[{set$<$ string $>$ \&}]{countries }\end{DoxyParamCaption})}
+
+
+
+Load the data from "{}airports.\+csv"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cities} & \\
+\hline
+{\em countries} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Updates the Cities and Countries set and returns a vector with all airports from the data. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00069}{69}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a82a2e2dbd19dbba1472f1ffb6eaf64cf}\label{_methods_8cpp_a82a2e2dbd19dbba1472f1ffb6eaf64cf} 
+\index{Methods.cpp@{Methods.cpp}!loadFlights@{loadFlights}}
+\index{loadFlights@{loadFlights}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{loadFlights()}{loadFlights()}}
+{\footnotesize\ttfamily void load\+Flights (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{airports,  }\item[{vector$<$ \mbox{\hyperlink{class_airline}{Airline}} $>$}]{airlines }\end{DoxyParamCaption})}
+
+
+
+Add all edges to all nodes in the graph of the airports from the data of "{}flights.\+csv"{}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & Vector with all flights. \\
+\hline
+{\em airports} & Vector with all airports. \\
+\hline
+{\em airlines} & Vector with all airlines. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00161}{161}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a9ce95b2942862e596592bece70f50250}\label{_methods_8cpp_a9ce95b2942862e596592bece70f50250} 
+\index{Methods.cpp@{Methods.cpp}!loadFlightsVector@{loadFlightsVector}}
+\index{loadFlightsVector@{loadFlightsVector}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{loadFlightsVector()}{loadFlightsVector()}}
+{\footnotesize\ttfamily vector$<$ \mbox{\hyperlink{class_flight}{Flight}} $>$ load\+Flights\+Vector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Load the data from "{}flights.\+csv"{}. 
+
+\begin{DoxyReturn}{Returns}
+Returns a vector with all the flights from the data. 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00131}{131}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a4fe43b1a4d20801b4af48068ea855def}\label{_methods_8cpp_a4fe43b1a4d20801b4af48068ea855def} 
+\index{Methods.cpp@{Methods.cpp}!maximumChegada@{maximumChegada}}
+\index{maximumChegada@{maximumChegada}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{maximumChegada()}{maximumChegada()}}
+{\footnotesize\ttfamily map$<$ \mbox{\hyperlink{class_airport}{Airport}}, unsigned $>$ maximum\+Chegada (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights,  }\item[{int}]{k }\end{DoxyParamCaption})}
+
+
+
+Number of flights reach to an airport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \\
+\hline
+{\em k} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Map container with the pair of an airport and its flights 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00641}{641}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a48fa7d95f2afa777e781f7aea3a0caaf}\label{_methods_8cpp_a48fa7d95f2afa777e781f7aea3a0caaf} 
+\index{Methods.cpp@{Methods.cpp}!maximumPartida@{maximumPartida}}
+\index{maximumPartida@{maximumPartida}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{maximumPartida()}{maximumPartida()}}
+{\footnotesize\ttfamily map$<$ \mbox{\hyperlink{class_airport}{Airport}}, unsigned $>$ maximum\+Partida (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights,  }\item[{int}]{k }\end{DoxyParamCaption})}
+
+
+
+Number of flights that departure from an airport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \\
+\hline
+{\em k} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Map container with the pair of an airport and its flights 
+\end{DoxyReturn}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00618}{618}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_ad269c04b7e104dc5255ae532934309d1}\label{_methods_8cpp_ad269c04b7e104dc5255ae532934309d1} 
+\index{Methods.cpp@{Methods.cpp}!maximumTraffic@{maximumTraffic}}
+\index{maximumTraffic@{maximumTraffic}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{maximumTraffic()}{maximumTraffic()}}
+{\footnotesize\ttfamily void maximum\+Traffic (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights,  }\item[{int}]{k }\end{DoxyParamCaption})}
+
+
+
+Number of flights a airport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \\
+\hline
+{\em k} & \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00672}{672}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a2a0e843767aeea4f433a28b9c54f573a}\label{_methods_8cpp_a2a0e843767aeea4f433a28b9c54f573a} 
+\index{Methods.cpp@{Methods.cpp}!menu@{menu}}
+\index{menu@{menu}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{menu()}{menu()}}
+{\footnotesize\ttfamily void menu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Interface of the menu. 
+
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l01349}{1349}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a3e73264b586ece6238570e68563b2b7c}\label{_methods_8cpp_a3e73264b586ece6238570e68563b2b7c} 
+\index{Methods.cpp@{Methods.cpp}!numberAirlines@{numberAirlines}}
+\index{numberAirlines@{numberAirlines}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberAirlines()}{numberAirlines()}}
+{\footnotesize\ttfamily void number\+Airlines (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_airline}{Airline}} $>$ \&}]{airlines }\end{DoxyParamCaption})}
+
+
+
+Number of airlines. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airlines} & Vector with all airlines. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00227}{227}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_add3e0fa3c9c6c89854a39bef3e587871}\label{_methods_8cpp_add3e0fa3c9c6c89854a39bef3e587871} 
+\index{Methods.cpp@{Methods.cpp}!numberAirport@{numberAirport}}
+\index{numberAirport@{numberAirport}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberAirport()}{numberAirport()}}
+{\footnotesize\ttfamily void number\+Airport (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights }\end{DoxyParamCaption})}
+
+
+
+Number of airports. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \doxylink{class_graph}{Graph} with all airports. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00208}{208}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a2e9c2f0de0678ded3f4d9372a44425a9}\label{_methods_8cpp_a2e9c2f0de0678ded3f4d9372a44425a9} 
+\index{Methods.cpp@{Methods.cpp}!numberAirportsFromAirport@{numberAirportsFromAirport}}
+\index{numberAirportsFromAirport@{numberAirportsFromAirport}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberAirportsFromAirport()}{numberAirportsFromAirport()}}
+{\footnotesize\ttfamily void number\+Airports\+From\+Airport (\begin{DoxyParamCaption}\item[{string \&}]{airport\+\_\+code,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{airports,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights }\end{DoxyParamCaption})}
+
+
+
+Number of airports that can be reached directly from an airport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport\+\_\+code} & \doxylink{class_airport}{Airport} code. \\
+\hline
+{\em airports} & Vector with all airports. \\
+\hline
+{\em flights} & \doxylink{class_graph}{Graph} with all airports. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00330}{330}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_af45d6cdd4761c60698f80d066415b8f8}\label{_methods_8cpp_af45d6cdd4761c60698f80d066415b8f8} 
+\index{Methods.cpp@{Methods.cpp}!numberAirportsFromXstops@{numberAirportsFromXstops}}
+\index{numberAirportsFromXstops@{numberAirportsFromXstops}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberAirportsFromXstops()}{numberAirportsFromXstops()}}
+{\footnotesize\ttfamily void number\+Airports\+From\+Xstops (\begin{DoxyParamCaption}\item[{string \&}]{airport\+\_\+code,  }\item[{int}]{k,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{airports,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{flights }\end{DoxyParamCaption})}
+
+
+
+Number of airports that can be reached within x stops from an airport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport\+\_\+code} & \doxylink{class_airport}{Airport} code. \\
+\hline
+{\em k} & Number of stops. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00449}{449}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_ad69d41d0e1eaed852be9f50fac9f1e8a}\label{_methods_8cpp_ad69d41d0e1eaed852be9f50fac9f1e8a} 
+\index{Methods.cpp@{Methods.cpp}!numberCities@{numberCities}}
+\index{numberCities@{numberCities}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberCities()}{numberCities()}}
+{\footnotesize\ttfamily void number\+Cities (\begin{DoxyParamCaption}\item[{set$<$ string $>$ \&}]{cities }\end{DoxyParamCaption})}
+
+
+
+Number of cities. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em cities} & Set with all cities. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00241}{241}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a4caab8be0ff89add7cfab7c699e1a27c}\label{_methods_8cpp_a4caab8be0ff89add7cfab7c699e1a27c} 
+\index{Methods.cpp@{Methods.cpp}!numberCitiesFromAirport@{numberCitiesFromAirport}}
+\index{numberCitiesFromAirport@{numberCitiesFromAirport}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberCitiesFromAirport()}{numberCitiesFromAirport()}}
+{\footnotesize\ttfamily void number\+Cities\+From\+Airport (\begin{DoxyParamCaption}\item[{string \&}]{airport\+\_\+code,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{airports,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights }\end{DoxyParamCaption})}
+
+
+
+Number of cities that can be reached directly from an airport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport\+\_\+code} & \doxylink{class_airport}{Airport} code. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00361}{361}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a3db4422a183931d6c8a32b663d3a5726}\label{_methods_8cpp_a3db4422a183931d6c8a32b663d3a5726} 
+\index{Methods.cpp@{Methods.cpp}!numberCitiesFromXstops@{numberCitiesFromXstops}}
+\index{numberCitiesFromXstops@{numberCitiesFromXstops}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberCitiesFromXstops()}{numberCitiesFromXstops()}}
+{\footnotesize\ttfamily void number\+Cities\+From\+Xstops (\begin{DoxyParamCaption}\item[{string \&}]{airport\+\_\+code,  }\item[{int}]{k,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{airports,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{flights }\end{DoxyParamCaption})}
+
+
+
+Number of cities that can be reached within x stops from an airport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport\+\_\+code} & \doxylink{class_airport}{Airport} code. \\
+\hline
+{\em k} & Number of stops. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00502}{502}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a421e634de8e6fd4f0fd4092cf9b9da18}\label{_methods_8cpp_a421e634de8e6fd4f0fd4092cf9b9da18} 
+\index{Methods.cpp@{Methods.cpp}!numberCountries@{numberCountries}}
+\index{numberCountries@{numberCountries}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberCountries()}{numberCountries()}}
+{\footnotesize\ttfamily void number\+Countries (\begin{DoxyParamCaption}\item[{set$<$ string $>$ \&}]{countries }\end{DoxyParamCaption})}
+
+
+
+Number of countries. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em countries} & Set with all countries. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00234}{234}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a49f5a8617c9541b44f53ecc142d99220}\label{_methods_8cpp_a49f5a8617c9541b44f53ecc142d99220} 
+\index{Methods.cpp@{Methods.cpp}!numberCountriesFromAirport@{numberCountriesFromAirport}}
+\index{numberCountriesFromAirport@{numberCountriesFromAirport}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberCountriesFromAirport()}{numberCountriesFromAirport()}}
+{\footnotesize\ttfamily void number\+Countries\+From\+Airport (\begin{DoxyParamCaption}\item[{string \&}]{airport\+\_\+code,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{airports,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights }\end{DoxyParamCaption})}
+
+
+
+Number of countries that can be reached directly from an airport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport\+\_\+code} & \doxylink{class_airport}{Airport} code. \\
+\hline
+{\em airports} & Vector with all airports. \\
+\hline
+{\em flights} & \doxylink{class_graph}{Graph} with all airports. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00396}{396}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a4bc96f79d9a2710fed436b40c432f9dd}\label{_methods_8cpp_a4bc96f79d9a2710fed436b40c432f9dd} 
+\index{Methods.cpp@{Methods.cpp}!numberCountriesFromCity@{numberCountriesFromCity}}
+\index{numberCountriesFromCity@{numberCountriesFromCity}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberCountriesFromCity()}{numberCountriesFromCity()}}
+{\footnotesize\ttfamily void number\+Countries\+From\+City (\begin{DoxyParamCaption}\item[{string \&}]{city,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights }\end{DoxyParamCaption})}
+
+
+
+Number of countries that can be reached directly from a city. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & City name. \\
+\hline
+{\em flights} & \doxylink{class_graph}{Graph} with all airports. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00430}{430}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_adb60fa6dab1eeb76bf0b69c87154ea26}\label{_methods_8cpp_adb60fa6dab1eeb76bf0b69c87154ea26} 
+\index{Methods.cpp@{Methods.cpp}!numberCountriesFromXstops@{numberCountriesFromXstops}}
+\index{numberCountriesFromXstops@{numberCountriesFromXstops}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberCountriesFromXstops()}{numberCountriesFromXstops()}}
+{\footnotesize\ttfamily void number\+Countries\+From\+Xstops (\begin{DoxyParamCaption}\item[{string \&}]{airport\+\_\+code,  }\item[{int}]{k,  }\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{airports,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \texorpdfstring{$\ast$}{*}}]{flights }\end{DoxyParamCaption})}
+
+
+
+Number of countries that can be reached within x stops from an airport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airport\+\_\+code} & \doxylink{class_airport}{Airport} code. \\
+\hline
+{\em k} & Number of stops. \\
+\hline
+{\em airports} & Vector with all the airports. \\
+\hline
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00555}{555}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_ab1739aab9bb2216c562938847efa83c8}\label{_methods_8cpp_ab1739aab9bb2216c562938847efa83c8} 
+\index{Methods.cpp@{Methods.cpp}!numberFlights@{numberFlights}}
+\index{numberFlights@{numberFlights}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberFlights()}{numberFlights()}}
+{\footnotesize\ttfamily void number\+Flights (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights }\end{DoxyParamCaption})}
+
+
+
+Number of flights. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em flights} & \doxylink{class_graph}{Graph} with all airports. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00215}{215}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_ab2cbbc3072f6525064aa3342acff63f5}\label{_methods_8cpp_ab2cbbc3072f6525064aa3342acff63f5} 
+\index{Methods.cpp@{Methods.cpp}!numberFlightsAirline@{numberFlightsAirline}}
+\index{numberFlightsAirline@{numberFlightsAirline}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberFlightsAirline()}{numberFlightsAirline()}}
+{\footnotesize\ttfamily void number\+Flights\+Airline (\begin{DoxyParamCaption}\item[{string \&}]{airline\+\_\+code,  }\item[{vector$<$ \mbox{\hyperlink{class_airline}{Airline}} $>$ \&}]{airlines,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights }\end{DoxyParamCaption})}
+
+
+
+Number of flights of a airline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airline\+\_\+code} & \doxylink{class_airline}{Airline} code. \\
+\hline
+{\em airlines} & Vector with all the airlines. \\
+\hline
+{\em flights} & \doxylink{class_graph}{Graph} with all the airports. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00298}{298}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a77c723e5636a47accd1e134505841d8a}\label{_methods_8cpp_a77c723e5636a47accd1e134505841d8a} 
+\index{Methods.cpp@{Methods.cpp}!numberFlightsCity@{numberFlightsCity}}
+\index{numberFlightsCity@{numberFlightsCity}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberFlightsCity()}{numberFlightsCity()}}
+{\footnotesize\ttfamily void number\+Flights\+City (\begin{DoxyParamCaption}\item[{string \&}]{city,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights }\end{DoxyParamCaption})}
+
+
+
+Number of flights of a city. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em city} & City name. \\
+\hline
+{\em flights} & \doxylink{class_graph}{Graph} with all airports. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00282}{282}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
+\Hypertarget{_methods_8cpp_a4459e2b8483bbfe24a1a44b1dcbac9d2}\label{_methods_8cpp_a4459e2b8483bbfe24a1a44b1dcbac9d2} 
+\index{Methods.cpp@{Methods.cpp}!numberFlightsFromAirport@{numberFlightsFromAirport}}
+\index{numberFlightsFromAirport@{numberFlightsFromAirport}!Methods.cpp@{Methods.cpp}}
+\doxysubsubsection{\texorpdfstring{numberFlightsFromAirport()}{numberFlightsFromAirport()}}
+{\footnotesize\ttfamily void number\+Flights\+From\+Airport (\begin{DoxyParamCaption}\item[{vector$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{airports,  }\item[{vector$<$ \mbox{\hyperlink{class_airline}{Airline}} $>$ \&}]{airlines,  }\item[{\mbox{\hyperlink{class_graph}{Graph}}$<$ \mbox{\hyperlink{class_airport}{Airport}} $>$ \&}]{flights,  }\item[{string}]{airport\+\_\+code }\end{DoxyParamCaption})}
+
+
+
+Number of flights from an airport. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em airports} & Vector with all airports. \\
+\hline
+{\em airlines} & Vector with all airlines. \\
+\hline
+{\em flights} & \doxylink{class_graph}{Graph} with all airports-\/ \\
+\hline
+{\em airport\+\_\+code} & String with the airport code. \\
+\hline
+\end{DoxyParams}
+
+
+Definition at line \mbox{\hyperlink{_methods_8cpp_source_l00251}{251}} of file \mbox{\hyperlink{_methods_8cpp_source}{Methods.\+cpp}}.
+
